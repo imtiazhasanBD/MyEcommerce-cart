@@ -1,0 +1,410 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    
+   
+}
+
+body  button, 
+body i, 
+body p  {
+    cursor: pointer;
+}
+
+.topbar{
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.792);
+    width: 100%;
+    height: 30px;
+    background-color: #00633f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    
+}
+
+.top-left{
+    margin-left: 50px;
+}
+
+.top-mid{
+    margin-left: 350px;
+    
+}
+
+
+.top-right{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+
+}
+
+.top-right-cos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-right-cos p{
+ margin-right: 20px;
+}
+
+.right-seletebar select {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.792) ;
+    font-size: 12px;
+    
+}
+
+
+
+.header{
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 30px;
+    background-color: white;
+    z-index: 100;
+  
+    
+}
+
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+
+.header .logo img{
+    background-color: transparent;
+    height: 50px;
+    margin-left: 10px;
+    
+}
+
+
+.logo h1{
+    color: #00633f;
+    font-weight: bold;
+    font-family: roboto;
+
+}
+
+.scerchbar{
+    display: flex;
+   
+    
+}
+
+
+.scerchbar input{
+    width: 100%;
+    padding-left: 10px;
+    height: 40px;
+    min-width: 300px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    background-color: rgb(235, 230, 230);
+
+}
+
+.scerchbar button {
+    color: white;
+    width: 50px;
+    background-color: #00633f;
+    border: none;
+  
+}
+
+.user-cart{
+    margin-left: 60px;
+   
+}
+
+.cart-items{
+    display: flex;
+    gap:10px
+}
+
+
+.user-cart i{
+    font-size: 20px;
+}
+
+
+.slide-bar{
+    margin-top: 110px;
+    height: 400px;
+    background-color: aquamarine;
+    transition: linear 2s;
+}
+.slide-bar img{
+    width: 100%;
+    height: 400px;
+   
+}
+
+.catagory-bar select{
+    margin-top: 20px;
+    margin-left: 50px;
+    background: transparent;
+    border: none;
+    background-color:rgb(214, 206, 206);
+    border-radius: 20%;
+    
+}
+
+
+.product-container{
+    margin: 30px 50px;
+    background-color: rgba(192, 192, 192, 0.091);
+}
+
+
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+  
+    
+}
+
+
+
+
+.product-item{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 15px;
+    background-color: white;
+    padding: 4px 15px 15px 15px ;
+    border-right: 1px solid rgb(231, 231, 231);
+    border-bottom: 1px solid rgb(231, 231, 231);
+    
+    
+}
+
+
+.product-photo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    margin-bottom:  20px;
+    
+}
+
+.product-photo img{
+    max-height: 100%;
+    max-width: 100%;
+    
+}
+
+
+.product-name{
+    height: 40px;
+}
+
+.product-price{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.product-rating img{
+    height: auto;
+    margin: 0 auto;
+    max-height: 60%;
+    max-width: 60%;
+    width: auto;
+
+}
+
+.addToCart-btn {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+.addToCart-btn button{
+    width: 100%;
+    padding: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.added-btn{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+   
+  
+}
+
+.addCart-btn-visibility{
+    opacity: 1;
+}
+
+
+
+.added-btn img{
+    height: 22px;
+}
+
+
+
+.addToCart-btn .addCart-btn :hover{
+    background-color: #00633f;
+    border: none;
+    font-weight: bold;
+    color: white;
+
+}
+
+.product-item:hover{
+    border: 1px solid #00633f;
+}
+
+/* Product FlashSell start form here  */ 
+
+.flashsell-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 50px;
+    background-color:#daebe53f;
+}
+
+
+.time-container{
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    align-items: center;
+     border-bottom: 1px solid black;
+}
+
+.sell-timer{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+   
+   
+}
+
+.sell-timer p{
+    font-size: 20px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background-color: #00633f;
+    padding: 4px;
+    padding-top: 8px;
+    color: white;
+
+    
+}
+
+/* sell-items css */
+
+.sell-items{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: auto
+}
+
+.sell-items::-webkit-scrollbar{
+    display: none;
+}
+
+.sell-items  .product-item{
+    min-width: 16.6%;
+    background: whitesmoke;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.5s;
+
+}
+
+.sell-items .product-price{
+    display: flex;
+    flex-direction: row;   
+    font-size: 15px;
+    font-weight:normal;
+    color: rgb(139, 133, 133);
+    gap: 5px;
+ 
+
+}
+
+
+.sell-items .discount-price{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 9px;
+    color:#00633f;
+}
+
+.sell-items .product-price p{
+    text-decoration: line-through;
+}
+
+.product-price #dis-pertenage {
+    color: black;
+    font-weight:bold;
+    font-size: 16px;
+   
+}
+
+
+
+
+header p span{
+    font-size: 40px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #555;
+     width: 30px;
+    height: 30px;
+    display: inline-block;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 3px;
+}
+header p span:hover{
+    background: #222;
+    color: white;
+}

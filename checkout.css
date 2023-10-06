@@ -82,8 +82,11 @@ body p  {
     top: 30px;
     background-color: white;
     z-index: 100;
-  
-    
+
+}
+
+.header a{
+    text-decoration: none;
 }
 
 
@@ -164,8 +167,13 @@ body p  {
 
 .order-container{
     display: flex;
-    margin: 200px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+   
 }
+
+
 
 .order-product-image img{
     height: 100px;
@@ -174,7 +182,24 @@ body p  {
 .product-delails{
     font-weight: bold;
     display: flex;
-    flex-direction: column;
     margin-top: 10px;
     gap: 10px;
+}
+
+.product-order-container{
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 200px 80px 0px 80px;
+
+
+
+}
+
+.shopping-cart{
+    border: 2px solid yellow;
+}
+
+.order-summary{
+    border: 2px solid green;
 }

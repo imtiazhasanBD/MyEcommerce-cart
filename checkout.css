@@ -163,43 +163,133 @@ body p  {
 }
 
 
+.cart-products-head{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 10px 30px 0px;
+    font-weight: bold;
+    background-color: #009a61;;
+    padding: 15px;
+    color: white;
+
+}
+
+.cart-product-pq{
+    display: flex;
+    justify-content: space-between;
+    gap: 90px;
+    margin-right: 70px;
+
+}
+
 
 
 .order-container{
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    margin-right: 10px;
+    border: 1px solid rgb(233, 233, 233);
+    padding: 10px;
 
    
 }
 
 
 
+.cart-product-title{
+    display: flex;
+    font-size: 15px;
+    gap: 10px;
+    font-weight: bold;
+    width: 400px;
+
+    
+}
+.cart-product-title .product-name{
+    float: left;
+    color: rgb(79, 79, 79);
+    margin-bottom: 7px;
+}
+
+
 .order-product-image img{
-    height: 100px;
+    height: 80px;
 }
 
 .product-delails{
-    font-weight: bold;
     display: flex;
+    margin-left: 200px;
     margin-top: 10px;
-    gap: 10px;
+    gap: 90px;
+    width: 300px;
 }
+
+.product-delails .product-price{
+    font-weight: bold;
+    color: #00633f;
+}
+
 
 .product-order-container{
-    border: 1px solid red;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    margin: 200px 80px 0px 80px;
-
-
+    grid-template-columns: 850px 400px;
+    margin: 150px 80px 0px 80px;
 
 }
 
-.shopping-cart{
-    border: 2px solid yellow;
+.product-color-size{
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+    color: rgb(146, 146, 146);
 }
+
+.order-product-detalis{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.product-brand{
+    font-size: 12px;
+    color: rgb(146, 146, 146);
+}
+
+.order-container button{
+    border: none;
+    background-color: white;
+    font-size: 18px;
+    margin-bottom: 40px;
+    
+}
+
+.minus-btn i,
+.plus-btn i{
+    font-size: 12px;
+    color: rgb(146, 146, 146);
+    background-color: rgb(232, 232, 232);
+    padding: 5px;
+}
+
 
 .order-summary{
-    border: 2px solid green;
+    background-color:rgb(232, 232, 232) ;
+    margin-top: 80px;
+    margin-left: 20px;
+    padding: 20px;
+    height: 300px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
 }
+
+.sub-total, .product-shipping,.voucher-code,
+.total-items-cost{
+    display: flex;
+    justify-content: space-between;
+}
+
+

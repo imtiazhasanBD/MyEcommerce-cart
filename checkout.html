@@ -78,31 +78,89 @@
 
         <div class="shopping-cart">
 
-            <h3>Shopping Cart</h3>
+            <h2>Shopping Cart</h2>
+
+            <div class="cart-products-head">
+                <div class="cart-product">Product</div>
+               <div class="cart-product-pq">
+                <div class="cart-product-price">Price</div>
+                <div class="cart-product-quantity">Quantity</div>
+               </div>
+                
+            </div>
 
             <div class="cart-container js-order-summary">
 
-                <!--     
-                       <div class="order-container">
-                           <div class="order-product-image">
-                               <img src="images/protuct image/LED waterproof electronic watch INS wind nylon strap watch European .jpg" alt="">
-                           </div>
-                           
-                           <div class="product-delails">
-                               <div class="product-name">LED waterproof electronic watch INS wind</div>
-                               <div class="product-price">44.50</div>
-                               <div class="product-quntity">Quantity: 2</div>
-                           </div>
-               
-                       </div>
-                   -->    
-               
-                   </div>
-        </div>
+        <!--
+                <div class="order-container">
+
+                <div class="cart-product-title">
+
+                    <div class="order-product-image">
+                        <img src="images/protuct image/LED waterproof electronic watch INS wind nylon strap watch European .jpg">
+                    </div>
+
+                   
+                    <div class="order-product-detalis">
+
+                        <div class="product-name">1200 DPI M6 7 Color LED Light Gaming Mouse  Black with Optical Tracing System                       
+                        </div>
+
+                        <div class="product-color-size">
+                            <div class="size">Size:XL</div>
+                            <div class="color">Color:Red</div>
+                        </div>
+                        
+                        <div class="product-brand">
+                            Brand:Gucci
+                        </div>
+                    </div>
+
+
+                </div>
+                    
+                    
+                    <div class="product-delails">
+                        <div class="product-priceproduct-price">44.50</div>
+                        <div class="product-quntity">
+                            <button class="minus-btn"><i class="fa-solid fa-minus"></i></button>
+                            11
+                            <button class="plus-btn"><i class="fa-solid fa-plus"></i></button>
+                        
+                        </div>
+                    </div>
+                <button class="js-delete-btn" data-product-id="${matcheingProduct.id}"><i class="fa-regular fa-trash-can"></i></button>   
+        
+                </div>
+            
+            -->
+            </div>
+
+
+    </div>
 
 
         <div class="order-summary">
-            <h3>Order Summary</h3>
+            <div><h3>Order Summary</h3>
+            </div>
+            <div class="sub-total">
+                <div class="total-items">Subtotal (2 items)</div>
+                <div class="total-price">$540</div>
+            </div>
+            <div class="product-shipping">
+                <div class="shipping-title">Shipping Fee</div>
+                <div class="shipping-cost">$50</div>
+            </div>
+        
+            <div class="voucher-code">
+                <input type="text" placeholder="Enter Voucher Code">
+                <button class="voucher-btn">Apply</button>
+            </div>
+            <div class="total-items-cost">
+                <div class="total-items">Total</div>
+                <div class="total-cost">203</div>
+            </div>
+            <button class="place-order-btn">PROCEED TO CHECKOUT</button>
         </div>
 
 

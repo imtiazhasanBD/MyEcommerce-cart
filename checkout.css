@@ -154,6 +154,7 @@ body p  {
     font-size: 20px;
 }
 
+.user-cart a
 
 
 *{
@@ -189,8 +190,10 @@ body p  {
     justify-content: space-between;
     margin-bottom: 30px;
     margin-right: 10px;
-    border: 1px solid rgb(233, 233, 233);
+    border: 2px solid rgb(233, 233, 233);
     padding: 10px;
+    
+    
 
    
 }
@@ -264,6 +267,10 @@ body p  {
     
 }
 
+.order-container button:hover{
+    color: red;
+}
+
 .minus-btn i,
 .plus-btn i{
     font-size: 12px;
@@ -274,22 +281,72 @@ body p  {
 
 
 .order-summary{
-    background-color:rgb(232, 232, 232) ;
+    color: #000000;
+    font-weight: bold;
     margin-top: 80px;
     margin-left: 20px;
-    padding: 20px;
+    padding: 10px;
     height: 300px;
-    width: 340px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border: 2px solid rgb(232, 232, 232)
     
 }
 
-.sub-total, .product-shipping,.voucher-code,
+.order-summary h3{
+    color: black;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.sub-total, .product-shipping,
 .total-items-cost{
     display: flex;
     justify-content: space-between;
 }
 
+.total-cost{
+    color: #00633f;
+    font-weight: bolder;
+}
 
+.total-items, .shipping-title{
+    font-weight: normal;
+}
+
+.voucher-code{
+    margin: 10px 0 10px 0;
+
+    
+}
+.voucher-code input{
+    padding: 10px 23px 10px 23px;
+    outline: none;
+}
+
+.voucher-btn{
+    padding: 12px 30px 12px 30px;
+    background-color: #00b7ff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.voucher-btn:hover{
+    background-color: #22a5d9;
+}
+
+.place-order-btn{
+    padding: 15px;
+    background-color:#009a61;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.place-order-btn:hover{
+    background-color: #00633f;
+}

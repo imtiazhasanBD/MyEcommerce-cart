@@ -2,7 +2,9 @@ import { cart,removeFromCart } from "./cart.js";
 import { products } from "./products.js";
 
 
+
 let cartProductHTML = '';
+
 
 
 cart.forEach((cartItem) =>{
@@ -68,11 +70,11 @@ cart.forEach((cartItem) =>{
   
     
     `;
-    
-
+  
 });
 
-document.querySelector('.js-order-summary').innerHTML = cartProductHTML
+document.querySelector('.js-order-summary').innerHTML = cartProductHTML;
+
 
 document.querySelectorAll(".js-delete-btn").forEach((link) => {
 

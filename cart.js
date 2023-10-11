@@ -26,7 +26,7 @@ if(!cart){
 
 
      export function addToCart(productId){
-             
+        
          let matcheingItem ;
 
          cart.forEach((item) =>{
@@ -45,6 +45,7 @@ if(!cart){
          }
 
          saveToStorage()
+         
      }
 
 

@@ -138,18 +138,68 @@ body p  {
 
 .user-cart{
     margin-left: 60px;
+    font-weight: bold;
+   
+}
+
+.user-cart a{
+    color: #00633f;
+    font-size: 25px;
    
 }
 
 .cart-items{
     display: flex;
-    gap:10px
+    text-align: center;
+    gap:40px
 }
 
 
 .user-cart i{
-    font-size: 20px;
+    font-size: 19px;
 }
+
+.login-btn,
+.cart-btn{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.login-btn{
+    display: flex;
+    gap: 8px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.login-btn p{
+    font-size: 15px;
+}
+
+.cart-icon{
+    position: relative;
+}
+
+
+
+.cart-quantity{
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 16px;
+    padding-top: 1px;
+    top: 20px;
+    cursor: pointer;
+
+}
+
+
 
 
 .slide-bar{
@@ -201,8 +251,7 @@ body p  {
     padding: 4px 15px 15px 15px ;
     border-right: 1px solid rgb(231, 231, 231);
     border-bottom: 1px solid rgb(231, 231, 231);
-    
-    
+    margin-bottom: 10px;
 }
 
 

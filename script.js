@@ -2,6 +2,7 @@ import { cart,addToCart } from "./cart.js";
 import { products } from "./products.js";
 
 
+
 products.forEach(product =>{
 
     const html = `
@@ -30,15 +31,18 @@ products.forEach(product =>{
     document.querySelector('.product-container').innerHTML += html;
 });
 
+updateCartQuantity();
 
-    function updateCartQuantity(){
+ export   function updateCartQuantity(){
         let cartQuantity = 0;
 
         cart.forEach((item) =>{
-            cartQuantity += item.quantity
+            cartQuantity += item.quantity;
+            
         })
 
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+      
     }
 
 
@@ -46,10 +50,11 @@ products.forEach(product =>{
 
         button.addEventListener('click', () =>{
          const productId =   button.dataset.productId;
-         addToCart(productId)
-         updateCartQuantity()   
-
+         addToCart(productId);
+         updateCartQuantity();
+    
         });
+
         
     });
     

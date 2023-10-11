@@ -44,6 +44,40 @@ export const products = [{
     name: 'New Stylish Fashionable Soft A.T Leather Sandal',
     price: '5555',
     rating: 'images/rating-4.png' 
+},
+{
+    id: '47585621',
+    image:  'images/protuct image/men-athletic-shoes-green.jpg',
+    name: 'Men athletic shoes green',
+    price: '11000',
+    rating: 'images/rating-4.png' 
+},
+{
+    id: '585235621',
+    image:  'images/protuct image/electric-glass-and-steel-hot-water-kettle.webp',
+    name: 'Electric glass and steel hot water kettle',
+    price: '650',
+    rating: 'images/rating-4.png' 
+},
+{
+    id: '8651358',
+    image:  'images/protuct image/round-airtight-food-storage-containers.jpg',
+    name: 'Round airtight food storage containers',
+    price: '3058',
+    rating: 'images/rating-4.png' 
+},
+{
+    id: '4788821',
+    image:  'images/protuct image/round-sunglasses-black.jpg',
+    name: 'Round-sunglasses-black',
+    price: '3056',
+    rating: 'images/rating-4.png' 
+},
+{
+    id: '7652369',
+    image:  'images/protuct image/6-piece-white-dinner-plate-set.jpg',
+    name: '6-piece-white-dinner-plate-set',
+    price: '4520',
+    rating: 'images/rating-4.png' 
 }
-
 ];

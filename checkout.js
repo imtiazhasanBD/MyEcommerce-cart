@@ -1,7 +1,8 @@
-import { cart,removeFromCart } from "./cart.js";
+import { cart,removeFromCart,removeCartQuantity } from "./cart.js";
 import { products } from "./products.js";
 
 
+let cartQuantity = 0,TotalPrice = 0;
 
 let cartProductHTML = '';
 
@@ -70,19 +71,51 @@ cart.forEach((cartItem) =>{
   
     
     `;
+    TotalPrice += Number((matcheingProduct.price /100).toFixed(2) * cartItem.quantity );
   
+
 });
 
 document.querySelector('.js-order-summary').innerHTML = cartProductHTML;
+document.querySelector('.total-price').innerHTML = `$${(TotalPrice).toFixed(2)}`
+document.querySelector('.total-cost').innerHTML = `$${(TotalPrice).toFixed(2)}`
+
+
+
 
 
 document.querySelectorAll(".js-delete-btn").forEach((link) => {
 
-            link.addEventListener('click', () =>{
-                const productId = link.dataset.productId
-                removeFromCart(productId)
-               const removeContainer =  document.querySelector(`.js-product-container-${productId}`);
-               removeContainer.remove()
-               
-            })
+    link.addEventListener('click', () =>{
+        const productId = link.dataset.productId
+        removeFromCart(productId);
+        const removeContainer =  document.querySelector(`.js-product-container-${productId}`);
+        removeContainer.remove();
+        removeQuantity(removeCartQuantity)
+      
+        
+        
+        
+    });
 })
+
+function removeQuantity(quantity){
+    const newQuantity = cartQuantity - quantity;
+    document.querySelector('.js-cart-quantity').innerHTML = newQuantity;
+    document.querySelector('.total-items').innerHTML = `  Subtotal (${newQuantity} items)`;
+    }
+
+
+
+cart.forEach((item) =>{
+    cartQuantity += item.quantity;
+    
+    
+});
+
+document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+document.querySelector('.total-items').innerHTML = `  Subtotal (${cartQuantity} items)`;
+
+
+
+

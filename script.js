@@ -2,7 +2,6 @@ import { cart,addToCart } from "./cart.js";
 import { products } from "./products.js";
 
 
-
 products.forEach(product =>{
 
     const html = `
@@ -31,9 +30,10 @@ products.forEach(product =>{
     document.querySelector('.product-container').innerHTML += html;
 });
 
-updateCartQuantity();
 
- export   function updateCartQuantity(){
+ updateCartQuantity();
+
+    function updateCartQuantity(){
         let cartQuantity = 0;
 
         cart.forEach((item) =>{
@@ -52,9 +52,8 @@ updateCartQuantity();
          const productId =   button.dataset.productId;
          addToCart(productId);
          updateCartQuantity();
-    
-        });
 
+        });
         
     });
     

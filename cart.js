@@ -13,7 +13,7 @@ if(!cart){
       }];
 }
 
-
+export let removeCartQuantity = 0;
 
 
 
@@ -40,11 +40,12 @@ if(!cart){
          } else{
              cart.push({
                  productId: productId,
-                 quantity: 1
+                 quantity: 1,
+                
               });
          }
 
-         saveToStorage()
+         saveToStorage();
          
      }
 
@@ -55,15 +56,22 @@ if(!cart){
         const newCart = [];
 
             cart.forEach((cartItem) =>{
+              
+                if(cartItem.productId === productId){
+                   removeCartQuantity = cartItem.quantity;
+                  
+                }
 
-                if(cartItem.productId !== productId){
+              if(cartItem.productId !== productId){
                     newCart.push(cartItem);
                 }
             });
 
             cart = newCart;
-            saveToStorage()
+            saveToStorage();
+           
+           
      }
 
-
+   
 

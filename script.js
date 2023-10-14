@@ -52,18 +52,16 @@ products.forEach(product =>{
          const productId =   button.dataset.productId;
          addToCart(productId);
          updateCartQuantity();
-
+ 
         });
+
         
     });
     
 
 
 
- const addedMessage = document.querySelector(`.added-btn`);
-
-
-
+ const addedMessage = document.querySelector(`.added-btn`)
 
 
       addedMessage.classList.add('added-to-cart-visible');

@@ -242,10 +242,6 @@ body p  {
     margin-right: 10px;
     border: 2px solid rgb(233, 233, 233);
     padding: 10px;
-    
-    
-
-   
 }
 
 
@@ -268,11 +264,12 @@ body p  {
 
 .order-product-image img{
     height: 80px;
+    width: 90px;
 }
 
 .product-delails{
     display: flex;
-    margin-left: 200px;
+    margin-left: 20px;
     margin-top: 10px;
     gap: 90px;
     width: 300px;
@@ -281,6 +278,7 @@ body p  {
 .product-delails .product-price{
     font-weight: bold;
     color: #00633f;
+    margin-left: 80px;
 }
 
 
@@ -307,6 +305,13 @@ body p  {
 .product-brand{
     font-size: 12px;
     color: rgb(146, 146, 146);
+}
+
+.order-product-detalis .delivery-cost{
+    font-size: 12px;
+    color: #2e7158;
+    font-weight: bolder;
+    margin-top: 5px;
 }
 
 .order-container button{
@@ -360,10 +365,12 @@ body p  {
 .total-cost{
     color: #00633f;
     font-weight: bold;
+    font-size: 18px;
 }
 
 .total-items, .shipping-title{
     font-weight: normal;
+
 }
 
 .voucher-code{
@@ -398,5 +405,36 @@ body p  {
 }
 
 .place-order-btn:hover{
+    background-color: #00633f;
+}
+
+.empty-cart{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.empty-cart p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.empty-cart a{
+    width: 180px;
+    padding: 12px;
+    font-size: 15px;
+    background-color: #009a61;
+    border: none;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+.empty-cart a:hover{
     background-color: #00633f;
 }

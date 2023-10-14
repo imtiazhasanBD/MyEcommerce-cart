@@ -234,10 +234,8 @@ body p  {
 
 .product-container{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 5px;
-  
-    
 }
 
 
@@ -247,12 +245,10 @@ body p  {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    font-size: 15px;
+    font-size: 14px;
     background-color: white;
     padding: 4px 15px 15px 15px ;
-    border-right: 1px solid rgb(231, 231, 231);
-    border-bottom: 1px solid rgb(231, 231, 231);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 
@@ -267,8 +263,7 @@ body p  {
 
 .product-photo img{
     max-height: 100%;
-    max-width: 100%;
-    
+    max-width: 100%;  
 }
 
 
@@ -287,7 +282,6 @@ body p  {
     max-height: 60%;
     max-width: 60%;
     width: auto;
-
 }
 
 .addToCart-btn {
@@ -314,12 +308,11 @@ body p  {
     justify-content: center;
     align-items: center;
     opacity: 0;
-   
-  
 }
 
 .addCart-btn-visibility{
     opacity: 1;
+    transform: none;
 }
 
 
@@ -339,13 +332,14 @@ body p  {
 }
 
 .product-item:hover{
-    border: 1px solid #00633f;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.15);
 }
+
 
 /* Product FlashSell start form here  */ 
 
 .flashsell-container{
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 15px;
     margin: 30px 50px;
@@ -362,7 +356,7 @@ body p  {
     font-weight: bold;
     font-size: 25px;
     align-items: center;
-     border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .sell-timer{
@@ -370,8 +364,7 @@ body p  {
     flex-direction: row;
     gap: 15px;
     align-items: center;
-   
-   
+  
 }
 
 .sell-timer p{
@@ -383,8 +376,6 @@ body p  {
     padding: 4px;
     padding-top: 8px;
     color: white;
-
-    
 }
 
 /* sell-items css */
@@ -403,7 +394,6 @@ body p  {
 .sell-items  .product-item{
     min-width: 16.6%;
     background: whitesmoke;
-    border-radius: 20px;
     position: relative;
     transition: 0.5s;
 
@@ -416,8 +406,6 @@ body p  {
     font-weight:normal;
     color: rgb(139, 133, 133);
     gap: 5px;
- 
-
 }
 
 
@@ -441,7 +429,6 @@ body p  {
 
 
 
-
 header p span{
     font-size: 40px;
     margin: 0 5px;
@@ -454,6 +441,7 @@ header p span{
     text-align: center;
     border-radius: 3px;
 }
+
 header p span:hover{
     background: #222;
     color: white;

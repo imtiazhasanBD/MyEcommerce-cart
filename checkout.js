@@ -2,7 +2,7 @@ import { cart,removeFromCart,removeCartQuantity } from "./cart.js";
 import { products } from "./products.js";
 
 
-let cartQuantity = 0,TotalPrice = 0;
+let cartQuantity = 0, TotalPrice = 0, deliveryCost = 0, RemoveTotalCost = 0;
 
 let cartProductHTML = '';
 
@@ -24,9 +24,7 @@ cart.forEach((cartItem) =>{
 
     cartProductHTML += 
 
-    `
-
-           
+    `      
     <div class="order-container js-product-container-${matcheingProduct.id}">
 
         <div class="cart-product-title">
@@ -34,8 +32,7 @@ cart.forEach((cartItem) =>{
             <div class="order-product-image">
                 <img src="${matcheingProduct.image}">
             </div>
-
-            
+          
             <div class="order-product-detalis">
 
                 <div class="product-name">${matcheingProduct.name}                       
@@ -49,8 +46,10 @@ cart.forEach((cartItem) =>{
                 <div class="product-brand">
                     Brand:Gucci
                 </div>
+                <div class="delivery-cost">
+                    Delivery Fee: $${(matcheingProduct.delivery /100).toFixed(2)}
+                </div>
             </div>
-
 
         </div>
             
@@ -64,22 +63,23 @@ cart.forEach((cartItem) =>{
             
             </div>
                 </div>
-            <button class="js-delete-btn" data-product-id="${matcheingProduct.id}"><i class="fa-regular fa-trash-can"></i></button>   
+            <button  class="js-delete-btn" data-product-id="${matcheingProduct.id}"><i class="fa-regular fa-trash-can"></i></button>   
     
             </div>
 
-  
     
     `;
-    TotalPrice += Number((matcheingProduct.price /100).toFixed(2) * cartItem.quantity );
-  
 
+    TotalPrice += Number((matcheingProduct.price /100).toFixed(2) * cartItem.quantity );
+    deliveryCost += Number(matcheingProduct.delivery /100);
+
+   
 });
 
 document.querySelector('.js-order-summary').innerHTML = cartProductHTML;
-document.querySelector('.total-price').innerHTML = `$${(TotalPrice).toFixed(2)}`
-document.querySelector('.total-cost').innerHTML = `$${(TotalPrice).toFixed(2)}`
-
+document.querySelector('.total-price').innerHTML = `$${(TotalPrice).toFixed(2)}`;
+document.querySelector('.shipping-cost').innerHTML = `$${(deliveryCost).toFixed(2)}`;
+document.querySelector('.total-cost').innerHTML = `$${(TotalPrice + deliveryCost).toFixed(2)}`;
 
 
 
@@ -91,18 +91,17 @@ document.querySelectorAll(".js-delete-btn").forEach((link) => {
         removeFromCart(productId);
         const removeContainer =  document.querySelector(`.js-product-container-${productId}`);
         removeContainer.remove();
-        removeQuantity(removeCartQuantity)
-      
-        
-        
-        
+        removeQuantity(removeCartQuantity);
+     
     });
-})
+});
+
 
 function removeQuantity(quantity){
-    const newQuantity = cartQuantity - quantity;
-    document.querySelector('.js-cart-quantity').innerHTML = newQuantity;
-    document.querySelector('.total-items').innerHTML = `  Subtotal (${newQuantity} items)`;
+
+        cartQuantity -=  quantity
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+        document.querySelector('.total-items').innerHTML = `Subtotal (${cartQuantity} items)`;
     }
 
 
@@ -118,4 +117,14 @@ document.querySelector('.total-items').innerHTML = `  Subtotal (${cartQuantity} 
 
 
 
+
+if (cart.length == 0 ){
+    document.querySelector('.js-order-summary').innerHTML =  `
+            <div class="empty-cart">
+                <p>Your cart is empty</p>
+                <a href="cart.html">View Products</a>
+            </div>
+
+    `
+}
 

@@ -122,7 +122,8 @@ export const products = [{
     name: 'Men-chino-pants-beige',
     price: '2550',
     delivery: '200',
-    rating: 'images/rating-4.png' 
+    rating: 'images/rating-4.png' ,
+    catagory:'pants'
 },
 {
     id: '262252',
@@ -130,6 +131,7 @@ export const products = [{
     name: 'Liquid laundry detergent plain',
     price: '2550',
     delivery: '200',
-    rating: 'images/rating-4.png' 
+    rating: 'images/rating-4.png' ,
+    catagory:'laundry'
 },
 ];

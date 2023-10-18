@@ -1,5 +1,5 @@
-import { cart,removeFromCart,removeCartQuantity } from "./cart.js";
-import { products } from "./products.js";
+import { cart,removeFromCart,removeCartQuantity } from "../script/cart.js";
+import { products } from "../script/products.js";
 
 
 let cartQuantity = 0, TotalPrice = 0, deliveryCost = 0, RemoveTotalCost = 0;

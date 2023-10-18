@@ -1,5 +1,5 @@
-import { cart,addToCart } from "./cart.js";
-import { products } from "./products.js";
+import { cart,addToCart } from "../script/cart.js";
+import { products } from "../script/products.js";
 
 
 products.forEach(product =>{

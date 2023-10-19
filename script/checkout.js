@@ -1,8 +1,8 @@
-import { cart,removeFromCart,removeCartQuantity } from "../script/cart.js";
+import { cart,removeFromCart,removeCartQuantity,RemoveProduct } from "../script/cart.js";
 import { products } from "../script/products.js";
 
 
-let cartQuantity = 0, TotalPrice = 0, deliveryCost = 0, RemoveTotalCost = 0;
+let cartQuantity = 0, TotalPrice = 0, deliveryCost = 0, RemoveProductCost = 0, NewPrice = 0;
 
 let cartProductHTML = '';
 
@@ -72,7 +72,7 @@ cart.forEach((cartItem) =>{
 
     TotalPrice += Number((matcheingProduct.price /100).toFixed(2) * cartItem.quantity );
     deliveryCost += Number(matcheingProduct.delivery /100);
-
+  
    
 });
 
@@ -92,6 +92,10 @@ document.querySelectorAll(".js-delete-btn").forEach((link) => {
         const removeContainer =  document.querySelector(`.js-product-container-${productId}`);
         removeContainer.remove();
         removeQuantity(removeCartQuantity);
+        RemoveCost(RemoveProduct);
+        NewPrice = (TotalPrice - RemoveProductCost).toFixed(2)
+        console.log(NewPrice)
+        
      
     });
 });
@@ -106,6 +110,7 @@ function removeQuantity(quantity){
 
 
 
+
 cart.forEach((item) =>{
     cartQuantity += item.quantity;
     
@@ -117,12 +122,21 @@ document.querySelector('.total-items').innerHTML = `  Subtotal (${cartQuantity} 
 
 
 
+function RemoveCost(Remove){
+    products.forEach((product) =>{
+        if(Remove.productId === product.id){
+            RemoveProductCost = (((product.price / 100).toFixed(2))  * removeCartQuantity.toFixed(2));
+        };
+        console.log(RemoveProductCost)
+    });
+    
+}
 
-if (cart.length == 0 ){
+if (cart.length === 0 ){
     document.querySelector('.js-order-summary').innerHTML =  `
             <div class="empty-cart">
                 <p>Your cart is empty</p>
-                <a href="cart.html">View Products</a>
+                <a href="Home-page.html">View Products</a>
             </div>
 
     `

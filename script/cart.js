@@ -13,7 +13,7 @@ if(!cart){
       }];
 }
 
-export let removeCartQuantity = 0;
+export let removeCartQuantity = 0, RemoveProduct = [];
 
 
 
@@ -59,6 +59,7 @@ export let removeCartQuantity = 0;
               
                 if(cartItem.productId === productId){
                    removeCartQuantity = cartItem.quantity;
+                   RemoveProduct = cartItem;
                   
                 }
 
@@ -68,9 +69,8 @@ export let removeCartQuantity = 0;
             });
 
             cart = newCart;
-            saveToStorage();
-           
-           
+            saveToStorage(); 
+    
      }
 
    

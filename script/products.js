@@ -114,7 +114,8 @@ export const products = [{
     name: 'Plain hooded fleece sweatshirt-yellow',
     price: '3550',
     delivery: '200',
-    rating: 'images/rating-4.png' 
+    rating: 'images/rating-4.png' ,
+    catagory:'pants'
 },
 {
     id: '458475262252',

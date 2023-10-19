@@ -115,8 +115,6 @@ body p  {
 
 .scerchbar{
     display: flex;
-   
-    
 }
 
 
@@ -246,6 +244,7 @@ body p  {
 
 .catagory-list li:hover{
     background-color: #ebebeb;
+    color: red;
 }
 
 .catagory-list li{
@@ -406,6 +405,11 @@ body p  {
     font-size: 25px;
     align-items: center;
     border-bottom: 1px solid black;
+}
+
+.time-container p,
+.sell-timer div{
+    color: #757575;
 }
 
 .sell-timer{

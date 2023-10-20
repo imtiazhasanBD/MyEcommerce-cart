@@ -1,14 +1,15 @@
-import { cart,addToCart } from "../script/cart.js";
+import { cart,addToCart, productPreview } from "../script/cart.js";
 import { products } from "../script/products.js";
+
 
 
 products.forEach(product =>{
 
     const html = `
-    <div class="product-item js-product-addBtn" data-product-item="${product.name}">
-        <div class="product-photo">
+    <div class="product-item" data-product-item="${product.id}">
+        <a href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${product.id}">
             <img src="${product.image}" alt="">
-        </div>
+        </a>
         <div class="product-name">
             ${product.name}
         </div>
@@ -54,12 +55,16 @@ products.forEach(product =>{
          updateCartQuantity();
  
         });
-
-        
     });
+
     
 
-
+    document.querySelectorAll('.js-product-addBtn').forEach((button) =>{
+        button.addEventListener('click', () =>{
+            const productId = button.dataset.productId;
+              productPreview(productId);
+        })
+    })
 
  const addedMessage = document.querySelector(`.added-btn`)
 

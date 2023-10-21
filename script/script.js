@@ -2,7 +2,6 @@ import { cart,addToCart, productPreview } from "../script/cart.js";
 import { products } from "../script/products.js";
 
 
-
 products.forEach(product =>{
 
     const html = `
@@ -30,6 +29,42 @@ products.forEach(product =>{
     `
     document.querySelector('.product-container').innerHTML += html;
 });
+
+
+ /* FlashSell Product */
+
+ products.forEach((protuct) =>{
+
+    const html = `
+    <div class="product-item">
+                
+    <a  href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${protuct.id}">>
+    <img src="${protuct.image}" alt="">
+    </a>
+    <div class="product-name">
+    ${protuct.name}
+    </div>
+    <div class="discount-price">
+        10.50
+    </div>
+    <div class="product-price">
+   <p> $${(protuct.price / 100).toFixed(2)} </p>
+        <div id="dis-pertenage">-50%</div> 
+    </div>
+  
+    <div class="addToCart-btn">
+        <div class="addCart-btn">
+        <button class="add-btn js-add-TOCart" data-product-id ="${protuct.id}">Add Cart</button>
+    </div>
+    <div class="added-btn" > </div>   
+    </div>
+
+</div>  
+    
+    `
+    document.querySelector('.sell-items').innerHTML += html
+})
+
 
 
  updateCartQuantity();
@@ -141,51 +176,10 @@ document.querySelector('.hour').innerHTML =  remainHour;
 
 
 
- /* FlashSell Product */
-
- products.forEach((protuct) =>{
-
-    const html = `
-    <div class="product-item">
-                
-    <div class="product-photo">
-    <img src="${protuct.image}" alt="">
-    </div>
-    <div class="product-name">
-    ${protuct.name}
-    </div>
-    <div class="discount-price">
-        10.50
-    </div>
-    <div class="product-price">
-   <p> $${(protuct.price / 100).toFixed(2)} </p>
-        <div id="dis-pertenage">-50%</div> 
-    </div>
-  
-    <div class="addToCart-btn">
-        <div class="addCart-btn">
-        <button class="add-btn js-add-TOCart" data-product-id ="${protuct.id}">Add Cart</button>
-    </div>
-    <div class="added-btn" > </div>   
-    </div>
-
-</div>  
-    
-    `
-    document.querySelector('.sell-items').innerHTML += html
-})
 
 
-document.querySelectorAll('.js-add-TOCart').forEach((button) => {
 
-    button.addEventListener('click', () =>{
-     const productId =   button.dataset.productId;
-     addToCart(productId)
-     updateCartQuantity()   
 
-    });
-    
-});
 
 
 

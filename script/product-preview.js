@@ -1,8 +1,8 @@
-import { matchingProduct } from "../script/cart.js";
+import { cart,matchingProduct } from "../script/cart.js";
 
 
   
-
+document.querySelector('title').innerHTML = matchingProduct.name
 document.querySelector('.product-preview').innerHTML = `       
 
 <div class="product-image-container">
@@ -89,5 +89,11 @@ document.querySelector('.product-preview').innerHTML = `
 
 `
 
+let cartQuantity = 0;
 
+cart.forEach((item) =>{
+    cartQuantity += item.quantity;
+});
+
+document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 

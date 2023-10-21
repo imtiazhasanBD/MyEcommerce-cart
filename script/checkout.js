@@ -1,8 +1,8 @@
-import { cart,removeFromCart,removeCartQuantity,RemoveProduct } from "../script/cart.js";
+import { cart,removeFromCart } from "../script/cart.js";
 import { products } from "../script/products.js";
 
 
-let cartQuantity = 0, TotalPrice = 0, deliveryCost = 0, RemoveProductCost = 0, NewPrice = 0;
+let cartQuantity = 0,deliveryCost = 0, TotalPrice = 0;
 
 let cartProductHTML = '';
 
@@ -84,6 +84,33 @@ document.querySelector('.total-cost').innerHTML = `$${(TotalPrice + deliveryCost
 
 
 
+function RemoveCostQuantity(){
+    let TotalPrice = 0, cartQuantity = 0, deliveryCost = 0;
+    cart.forEach((item) => {
+        const id = item.productId
+        let matchingItem;
+        cartQuantity += item.quantity;
+
+        products.forEach((product) =>{
+            if(product.id === id){
+                matchingItem = product
+            }
+        })
+
+        TotalPrice += matchingItem.price/100 * item.quantity
+        deliveryCost += matchingItem.delivery /100
+    })
+
+    console.log(deliveryCost)
+    document.querySelector('.total-price').innerHTML = `$${(TotalPrice).toFixed(2)}`;
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    document.querySelector('.total-items').innerHTML = `Subtotal (${cartQuantity} items)`;
+    document.querySelector('.shipping-cost').innerHTML = `$${(deliveryCost).toFixed(2)}`;
+    document.querySelector('.total-cost').innerHTML = `$${(TotalPrice + deliveryCost).toFixed(2)}`;
+}
+
+
+
 document.querySelectorAll(".js-delete-btn").forEach((link) => {
 
     link.addEventListener('click', () =>{
@@ -91,30 +118,18 @@ document.querySelectorAll(".js-delete-btn").forEach((link) => {
         removeFromCart(productId);
         const removeContainer =  document.querySelector(`.js-product-container-${productId}`);
         removeContainer.remove();
-        removeQuantity(removeCartQuantity);
-        RemoveCost(RemoveProduct);
-        NewPrice = (TotalPrice - RemoveProductCost).toFixed(2)
-        console.log(NewPrice)
+        RemoveCostQuantity();
         
      
     });
 });
 
 
-function removeQuantity(quantity){
-
-        cartQuantity -=  quantity
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-        document.querySelector('.total-items').innerHTML = `Subtotal (${cartQuantity} items)`;
-    }
-
 
 
 
 cart.forEach((item) =>{
     cartQuantity += item.quantity;
-    
-    
 });
 
 document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
@@ -122,21 +137,15 @@ document.querySelector('.total-items').innerHTML = `  Subtotal (${cartQuantity} 
 
 
 
-function RemoveCost(Remove){
-    products.forEach((product) =>{
-        if(Remove.productId === product.id){
-            RemoveProductCost = (((product.price / 100).toFixed(2))  * removeCartQuantity.toFixed(2));
-        };
-        console.log(RemoveProductCost)
-    });
+
     
-}
+
 
 if (cart.length === 0 ){
     document.querySelector('.js-order-summary').innerHTML =  `
             <div class="empty-cart">
                 <p>Your cart is empty</p>
-                <a href="Home-page.html">View Products</a>
+                <a href="index.html">View Products</a>
             </div>
 
     `

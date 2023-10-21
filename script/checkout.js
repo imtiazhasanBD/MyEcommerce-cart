@@ -1,25 +1,31 @@
-import { cart,removeFromCart } from "../script/cart.js";
+import { cart,productPreview,removeFromCart } from "../script/cart.js";
 import { products } from "../script/products.js";
 
 
-let cartQuantity = 0,deliveryCost = 0, TotalPrice = 0;
 
+//all elements
+const orderSummaryEl = document.querySelector('.js-order-summary');
+const TotalPriceEl = document.querySelector('.total-price');
+const ShippingCostEl = document.querySelector('.shipping-cost');
+const TotalCostEl = document.querySelector('.total-cost');
+const CartQuantityEl = document.querySelector('.js-cart-quantity');
+const TotalItemEl = document.querySelector('.total-items');
+
+
+let cartQuantity = 0,deliveryCost = 0, TotalPrice = 0;
 let cartProductHTML = '';
 
 
-
+//creating cart product html templete
 cart.forEach((cartItem) =>{
 
     const productId = cartItem.productId;
-
     let matcheingProduct;
 
     products.forEach((product) => {
-
             if(product.id === productId){
                 matcheingProduct = product;
-            }
-           
+            } 
     });
 
     cartProductHTML += 
@@ -29,9 +35,9 @@ cart.forEach((cartItem) =>{
 
         <div class="cart-product-title">
 
-            <div class="order-product-image">
+            <a href="Product-preview.html" class="order-product-image" data-product-id="${matcheingProduct.id}">
                 <img src="${matcheingProduct.image}">
-            </div>
+            </a>
           
             <div class="order-product-detalis">
 
@@ -52,8 +58,7 @@ cart.forEach((cartItem) =>{
             </div>
 
         </div>
-            
-            
+                  
         <div class="product-delails">
             <div class="product-price">$${(matcheingProduct.price /100).toFixed(2)}</div>
             <div class="product-quntity">
@@ -67,25 +72,27 @@ cart.forEach((cartItem) =>{
     
             </div>
 
-    
     `;
 
+  // calculate totalprice and Total delivery Cost  
     TotalPrice += Number((matcheingProduct.price /100).toFixed(2) * cartItem.quantity );
     deliveryCost += Number(matcheingProduct.delivery /100);
   
    
 });
 
-document.querySelector('.js-order-summary').innerHTML = cartProductHTML;
-document.querySelector('.total-price').innerHTML = `$${(TotalPrice).toFixed(2)}`;
-document.querySelector('.shipping-cost').innerHTML = `$${(deliveryCost).toFixed(2)}`;
-document.querySelector('.total-cost').innerHTML = `$${(TotalPrice + deliveryCost).toFixed(2)}`;
+//remder cart product and total cost on checkout page
+orderSummaryEl.innerHTML = cartProductHTML;
+TotalPriceEl.innerHTML = `$${(TotalPrice).toFixed(2)}`;
+ShippingCostEl.innerHTML = `$${(deliveryCost).toFixed(2)}`;
+TotalCostEl.innerHTML = `$${(TotalPrice + deliveryCost).toFixed(2)}`;
 
 
 
-
+// calculate the removing item cost
 function RemoveCostQuantity(){
     let TotalPrice = 0, cartQuantity = 0, deliveryCost = 0;
+   
     cart.forEach((item) => {
         const id = item.productId
         let matchingItem;
@@ -93,24 +100,25 @@ function RemoveCostQuantity(){
 
         products.forEach((product) =>{
             if(product.id === id){
-                matchingItem = product
-            }
-        })
+                matchingItem = product;
+            };
+        });
 
-        TotalPrice += matchingItem.price/100 * item.quantity
-        deliveryCost += matchingItem.delivery /100
-    })
-
-    console.log(deliveryCost)
-    document.querySelector('.total-price').innerHTML = `$${(TotalPrice).toFixed(2)}`;
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-    document.querySelector('.total-items').innerHTML = `Subtotal (${cartQuantity} items)`;
-    document.querySelector('.shipping-cost').innerHTML = `$${(deliveryCost).toFixed(2)}`;
-    document.querySelector('.total-cost').innerHTML = `$${(TotalPrice + deliveryCost).toFixed(2)}`;
-}
+        TotalPrice += matchingItem.price/100 * item.quantity;
+        deliveryCost += matchingItem.delivery /100;
+    });
 
 
+//remder update cost
+    TotalPriceEl.innerHTML = `$${(TotalPrice).toFixed(2)}`;
+    CartQuantityEl.innerHTML = cartQuantity; 
+    TotalItemEl.innerHTML = `Subtotal (${cartQuantity} items)`;
+    ShippingCostEl.innerHTML = `$${(deliveryCost).toFixed(2)}`;
+    TotalCostEl.innerHTML = `$${(TotalPrice + deliveryCost).toFixed(2)}`;
+};
 
+
+// cart product delete button
 document.querySelectorAll(".js-delete-btn").forEach((link) => {
 
     link.addEventListener('click', () =>{
@@ -126,21 +134,29 @@ document.querySelectorAll(".js-delete-btn").forEach((link) => {
 
 
 
+// cart product preview button
+document.querySelectorAll('.order-product-image').forEach((button) =>{
+    
+    button.addEventListener('click', () =>{
+        const productId = button.dataset.productId;
+        productPreview(productId);
+    });
+});
 
 
+
+//updating the cart quantity
 cart.forEach((item) =>{
     cartQuantity += item.quantity;
 });
 
-document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-document.querySelector('.total-items').innerHTML = `  Subtotal (${cartQuantity} items)`;
+// render cart quantity
+CartQuantityEl.innerHTML = cartQuantity;
+TotalItemEl.innerHTML = `  Subtotal (${cartQuantity} items)`;
 
 
 
-
-    
-
-
+// cart is empty message 
 if (cart.length === 0 ){
     document.querySelector('.js-order-summary').innerHTML =  `
             <div class="empty-cart">
@@ -148,6 +164,6 @@ if (cart.length === 0 ){
                 <a href="index.html">View Products</a>
             </div>
 
-    `
-}
+    `;
+};
 

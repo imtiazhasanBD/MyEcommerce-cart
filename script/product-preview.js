@@ -14,17 +14,18 @@ document.querySelector('.product-preview').innerHTML =
 `       
 <div class="product-image-container">
 <div class="product-image">
+    <div class="multi-image">
+        <img src="${matchingProduct.image}">
+        <img src="image/watch/watch 1.jpg">
+        <img src="image/watch/watch 2.jpg">
+        <img src="image/watch/watch 3.jpg">
+        <img src="image/watch/watch 4.jpg">
+        <img src="image/watch/watch 5.jpg">
+    </div>
       <div class="image">
-         <img src="${matchingProduct.image}">
+         <img src="${matchingProduct.image}" id="preview-image">
      </div>
 
-       <div class="multi-image">
-             <img src="image/watch/watch 1.jpg">
-             <img src="image/watch/watch 2.jpg">
-             <img src="image/watch/watch 3.jpg">
-             <img src="image/watch/watch 4.jpg">
-             <img src="image/watch/watch 5.jpg">
-       </div>
 </div>
 
  <div class="product-btn">
@@ -101,7 +102,7 @@ document.querySelector('.addCart-btn').addEventListener('click', () =>{
         addToCart(productId);
         cartQuantity ++
         CartQuantityEl.innerHTML = cartQuantity;
-})
+});
 
 
 
@@ -111,6 +112,16 @@ let cartQuantity = 0;
 cart.forEach((item) =>{
     cartQuantity += item.quantity;
 });
-
 CartQuantityEl.innerHTML = cartQuantity;
+
+
+
+// Changing preview image 
+  document.querySelectorAll('.multi-image img').forEach((button) =>{
+            button.addEventListener('mouseover', () =>{
+                const img = button.src;
+                document.querySelector('#preview-image').src = img;
+            });
+  });
+
 

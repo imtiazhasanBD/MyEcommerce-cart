@@ -210,7 +210,6 @@ body p  {
 
 .product-preview{
     display: flex;
-    gap: 20px;
     margin: 110px 100px 10px 100px;
 
 }
@@ -232,6 +231,7 @@ body p  {
 
 .product-image .image{
     display: flex;
+    flex-direction: column;
     height: 490px;
     width: 430px;
     align-items: center;

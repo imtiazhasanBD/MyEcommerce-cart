@@ -100,6 +100,7 @@ if(!cart){
          })
      
          saveToStorage();    
+         
      }
    
      

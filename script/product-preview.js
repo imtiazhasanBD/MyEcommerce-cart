@@ -1,10 +1,17 @@
-import { cart,matchingProduct } from "../script/cart.js";
+import { cart,matchingProduct, addToCart } from "../script/cart.js";
 
-
+const CartQuantityEl = document.querySelector('.js-cart-quantity');
   
-document.querySelector('title').innerHTML = matchingProduct.name
-document.querySelector('.product-preview').innerHTML = `       
 
+//changing document tiitle
+document.querySelector('title').innerHTML = matchingProduct.name;
+
+
+
+//render matching product on page
+document.querySelector('.product-preview').innerHTML = 
+
+`       
 <div class="product-image-container">
 <div class="product-image">
       <div class="image">
@@ -30,48 +37,46 @@ document.querySelector('.product-preview').innerHTML = `
 
 <div class="product-details-container">
 
+    <div class="product-details">
 
+        <div class="product-name">
+        ${matchingProduct.name}
+        </div>
 
-<div class="product-details">
+        <div class="product-Price">
+            $${(matchingProduct.price / 100).toFixed(2)}
+        </div>
 
-     <div class="product-name">
-     ${matchingProduct.name}
-     </div>
+        <div class="product-brand-size">
+            <div class="product-color-size">
+                <div class="size">Size:XL</div>
+                <div class="color">Color:Red</div>
+            </div>
+            
+            <div class="product-brand">
+                Brand:Gucci
+            </div>
+        </div>
 
-     <div class="product-Price">
-         $${(matchingProduct.price / 100).toFixed(2)}
-     </div>
+        <div class="product-rating">
+            <div class="rating-image">
+                <img src="${matchingProduct.rating}">
+            </div>
+            <p>14,077 Ratings & 990 Reviews</p>
+        </div>
 
-     <div class="product-brand-size">
-         <div class="product-color-size">
-             <div class="size">Size:XL</div>
-             <div class="color">Color:Red</div>
-         </div>
-         
-         <div class="product-brand">
-             Brand:Gucci
-         </div>
-     </div>
+        <div class="delivery-details">
+            <div class="delivery-time">
+                <i class="fa-solid fa-truck"></i> <p>Standard Delivery 23 Oct - 27 Oct</p>
+            <p class="delivery-cost">$${(matchingProduct.delivery / 100).toFixed(2)}</p>
+            </div>
+            <div class="cash-on-delivery">
+                <i class="fa-solid fa-money-check-dollar"></i>
+                <p>Cash on Delivery Available</p>
+            </div>
 
-     <div class="product-rating">
-         <div class="rating-image">
-             <img src="${matchingProduct.rating}">
-         </div>
-         <p>14,077 Ratings & 990 Reviews</p>
-     </div>
-
-     <div class="delivery-details">
-         <div class="delivery-time">
-             <i class="fa-solid fa-truck"></i> <p>Standard Delivery 23 Oct - 27 Oct</p>
-         <p class="delivery-cost">$${(matchingProduct.delivery / 100).toFixed(2)}</p>
-         </div>
-         <div class="cash-on-delivery">
-             <i class="fa-solid fa-money-check-dollar"></i>
-             <p>Cash on Delivery Available</p>
-         </div>
-
-     </div>
-    
+        </div>
+        
 
      <div class="product-description">
          <p>Product details:</p>
@@ -89,11 +94,23 @@ document.querySelector('.product-preview').innerHTML = `
 
 `
 
+
+//Preview product AddToCart Button
+document.querySelector('.addCart-btn').addEventListener('click', () =>{
+        const productId = matchingProduct.id;
+        addToCart(productId);
+        cartQuantity ++
+        CartQuantityEl.innerHTML = cartQuantity;
+})
+
+
+
+//Updating The CartQuantity  
 let cartQuantity = 0;
 
 cart.forEach((item) =>{
     cartQuantity += item.quantity;
 });
 
-document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+CartQuantityEl.innerHTML = cartQuantity;
 

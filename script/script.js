@@ -2,6 +2,7 @@ import { cart,addToCart, productPreview } from "../script/cart.js";
 import { products } from "../script/products.js";
 
 
+// Render Products on homePage
 products.forEach(product =>{
 
     const html = `
@@ -31,8 +32,9 @@ products.forEach(product =>{
 });
 
 
- /* FlashSell Product */
 
+
+ /* render FlashSell Products */
  products.forEach((protuct) =>{
 
     const html = `
@@ -67,21 +69,24 @@ products.forEach(product =>{
 
 
 
+
+// updating the cartQuantity
  updateCartQuantity();
 
     function updateCartQuantity(){
         let cartQuantity = 0;
 
         cart.forEach((item) =>{
-            cartQuantity += item.quantity;
-            
-        })
+            cartQuantity += item.quantity; 
+        });
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-      
-    }
+    };
 
 
+
+
+// Products Add to cart Button 
     document.querySelectorAll('.add-btn').forEach((button) => {
 
         button.addEventListener('click', () =>{
@@ -94,19 +99,19 @@ products.forEach(product =>{
 
     
 
+// Preview product Add Button    
     document.querySelectorAll('.js-product-addBtn').forEach((button) =>{
         button.addEventListener('click', () =>{
             const productId = button.dataset.productId;
               productPreview(productId);
-        })
-    })
-
- const addedMessage = document.querySelector(`.added-btn`)
+        });
+    });
 
 
+
+// product added to cart message
+    const addedMessage = document.querySelector(`.added-btn`)
       addedMessage.classList.add('added-to-cart-visible');
-
- 
 
       setTimeout(() => {
         addedMessage.classList.remove('added-to-cart-visible');
@@ -115,23 +120,8 @@ products.forEach(product =>{
 
 
 
-      
 
-
-
-  
-    
-    
-    
-      
-    
-    
-
-
-
-
-
-
+// image slider
  const imgTag = document.querySelector('.slide-bar img')
  const imgSlider = ['images/slider 0.png','images/slider 1.jpg','images/slider 2.jpg' ]
  let count = 0;
@@ -150,8 +140,8 @@ products.forEach(product =>{
 
 
  
- /* Product FlashSell start form here  */ 
 
+// flashsell timer
  setInterval(()=>{
     const tomorrow = new Date('28 june 2023 23:59:59');
 const today = new Date();
@@ -162,8 +152,6 @@ const totalTime =   tomorrow - today;
 let totalSceond = Math.floor(totalTime / 1000);
 let totalMinutes = Math.floor(totalSceond / 60);
 let totalHour = Math.floor(totalMinutes  / 60);
-
-
 let remainSceond = totalSceond % 60
 let remainMinute = totalMinutes % 60
 let remainHour = totalHour % 60
@@ -178,12 +166,7 @@ document.querySelector('.hour').innerHTML =  remainHour;
 
 
 
-
-
-
-
-
-
+ /* Product FlashSell start form here  */ 
 let span = document.getElementsByTagName('span');
 	let product = document.getElementsByClassName('product-item')
 	let product_page = Math.ceil(product.length/4);

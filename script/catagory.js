@@ -1,5 +1,7 @@
 import { products } from "../script/products.js";
 
+
+//render catagory on page
 const catagoryHtml = `
 
 <ul class="catagory-list">

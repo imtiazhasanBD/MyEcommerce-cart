@@ -104,8 +104,8 @@ function RemoveCostQuantity(){
             };
         });
 
-        TotalPrice += matchingItem.price/100 * item.quantity;
-        deliveryCost += matchingItem.delivery /100;
+        TotalPrice += Number(matchingItem.price/100 * item.quantity);
+        deliveryCost += Number(matchingItem.delivery /100);
     });
 
 

@@ -1,4 +1,5 @@
-import { cart,matchingProduct, addToCart } from "../script/cart.js";
+import { cart,matchingProduct, addToCart,productPreview } from "../script/cart.js";
+import { products } from "../script/products.js";
 
 const CartQuantityEl = document.querySelector('.js-cart-quantity');
   
@@ -93,7 +94,7 @@ document.querySelector('.product-preview').innerHTML =
      
  </div>
 
-`
+`;
 
 
 //Preview product AddToCart Button
@@ -125,3 +126,63 @@ CartQuantityEl.innerHTML = cartQuantity;
   });
 
 
+
+
+//Related Products render
+products.forEach((product) =>{
+    const catagory = matchingProduct.catagory
+    let relatedProduct = [] ;
+    
+    if(catagory === product.catagory){
+        relatedProduct = product;
+      if(relatedProduct.id !== matchingProduct.id){
+
+        document.querySelector('.related-products').innerHTML += `
+        
+        <div class="related-products-item">
+
+                <a href="Product-preview.html" class="related-products-photo js-productPreview-addBtn" data-product-id ="${relatedProduct.id}">
+                    <img src="${relatedProduct.image}" alt="">
+                </a>
+                <div class="related-products-name">
+                ${relatedProduct.name}
+                </div>
+                <div class="related-products-price">
+                $${(relatedProduct.price/100).toFixed(2)}
+                </div>
+                <div class="related-products-rating">
+                    <img src="images/rating-4.png" alt="">
+                </div>
+                <div class="addToCart-btn">
+                    <div class="addCart-btn">
+                    <button class="add-btn js-add-TOCart" data-product-id ="${relatedProduct.id}">Add Cart</button>
+                </div>
+                <div class="added-btn" > </div>   
+                </div>
+
+            </div>  
+        
+        `
+      };
+    };
+});
+
+
+
+//Related Product AddToCart Button
+document.querySelectorAll('.js-add-TOCart').forEach((button) =>{
+    button.addEventListener('click', () =>{
+        const productId = button.dataset.productId;
+        addToCart(productId);
+        cartQuantity ++
+        CartQuantityEl.innerHTML = cartQuantity;
+    });
+});
+
+// Preview product Add Button    
+document.querySelectorAll('.js-productPreview-addBtn').forEach((button) =>{
+    button.addEventListener('click', () =>{
+        const productId = button.dataset.productId;
+          productPreview(productId);
+    });
+});

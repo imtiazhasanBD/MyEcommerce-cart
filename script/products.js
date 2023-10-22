@@ -1,7 +1,7 @@
 export const products = [{
     id: '11448965',
-    image:  'images/protuct image/pexels-mstudio-1240892.jpg',
-    name: 'Sneakers for Men Casual Shoes for Men',
+    image:  'images/protuct image/knit-athletic-sneakers-pink.webp',
+    name: 'knit-athletic-sneakers-pink',
     price: '2090',
     delivery: '200',
     rating: 'images/rating-4.png',
@@ -9,8 +9,8 @@ export const products = [{
 },
 {   
     id: '565842',
-    image:  'images/protuct image/pexels-pixabay-277390.jpg',
-    name: '2NRB50 Led Square shape led watch for men Black',
+    image:  'images/protuct image/Premium Quality - Black Analog Watch For-Men.webp',
+    name: 'Premium Quality - Black Analog Watch For-Men',
     price: '3060',
     delivery: '500',
     rating: 'images/rating-4.png' ,
@@ -23,7 +23,7 @@ export const products = [{
     price: '1060',
     delivery: '600',
     rating: 'images/rating-4.png',
-    catagory:'bag' 
+    catagory:'wallet' 
 },
 {
     id: '456321',
@@ -96,6 +96,15 @@ export const products = [{
     catagory:'fashion'
 },
 {
+    id: '85369425',
+    image:  'images/protuct image/Gorgeous Looking Colorful AntibAir LED Digital Sports Watch.webp',
+    name: 'Gorgeous Looking Colorful AntibAir LED Digital Sports Watch',
+    price: '8656',
+    delivery: '500',
+    rating: 'images/rating-4.png' ,
+    catagory:'watch'
+},
+{
     id: '7652369',
     image:  'images/protuct image/6-piece-white-dinner-plate-set.jpg',
     name: '6-piece-white-dinner-plate-set',
@@ -112,6 +121,15 @@ export const products = [{
     delivery: '550',
     rating: 'images/rating-4.png' ,
     catagory:'kitchen'
+},
+{
+    id: '963528',
+    image:  'images/protuct image/Goloen Wolf Men Laptop Backpack Anti-Theft Travel Bags .webp',
+    name: 'Goloen Wolf Men Laptop Backpack Anti-Theft Travel Bags - Black Gb00444',
+    price: '4055',
+    delivery: '550',
+    rating: 'images/rating-4.png' ,
+    catagory:'backpack'
 },
 {
     id: '78964253',
@@ -139,6 +157,15 @@ export const products = [{
     delivery: '200',
     rating: 'images/rating-4.png' ,
     catagory:'fashion'
+},
+{
+    id: '4778882252',
+    image:  'images/protuct image/Chicago Camera Backpack Your Compac.webp',
+    name: 'BP-30 Chicago Camera Backpack: Your Compac',
+    price: '5600',
+    delivery: '200',
+    rating: 'images/rating-4.png' ,
+    catagory:'backpack'
 },
 {
     id: '262252',

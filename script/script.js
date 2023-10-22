@@ -40,7 +40,7 @@ products.forEach(product =>{
     const html = `
     <div class="product-item">
                 
-    <a  href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${protuct.id}">>
+    <a  href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${protuct.id}">
     <img src="${protuct.image}" alt="">
     </a>
     <div class="product-name">

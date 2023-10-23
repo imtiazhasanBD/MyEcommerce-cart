@@ -75,7 +75,7 @@ document.querySelector('.product-preview').innerHTML =
 
         <div class="delivery-details">
             <div class="delivery-time">
-                <i class="fa-solid fa-truck"></i> <p><b>Standard Delivery</b> ${afterThreeDay.format("DD MMM YY")} - ${afterSevenDay.format("DD MMM YY")}</p>
+                <i class="fa-solid fa-truck"></i> <p><b>Standard Delivery</b> ${afterThreeDay.format("DD MMM ")} - ${afterSevenDay.format("DD MMM")}</p>
             <p class="delivery-cost">$${(matchingProduct.delivery / 100).toFixed(2)}</p>
             </div>
             <div class="cash-on-delivery">

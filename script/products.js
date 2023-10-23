@@ -28,7 +28,7 @@ export const products = [{
 {
     id: '456321',
     image:  'images/protuct image/Xiaomi Mi Mini Stylish Backpack Colour -Black.webp',
-    name: 'Xiaomi Mi Mini Stylish Backpack Colour -Black',
+    name: 'Xiaomi Mi Mini Stylish Backpack Colour - Black',
     price: '4060',
     delivery: '300',
     rating: 'images/rating-4.png' ,
@@ -161,7 +161,7 @@ export const products = [{
 {
     id: '4778882252',
     image:  'images/protuct image/Chicago Camera Backpack Your Compac.webp',
-    name: 'BP-30 Chicago Camera Backpack: Your Compac',
+    name: 'BP-30 Chicago Camera Backpack: Your Compact',
     price: '5600',
     delivery: '200',
     rating: 'images/rating-4.png' ,
@@ -177,3 +177,15 @@ export const products = [{
     catagory:'laundry'
 },
 ];
+
+
+//short the big name
+export function shortedName(name) {
+    if (name.length > 50) {
+        return name.substring(0, 47) + '...';
+    } else {
+        return name;
+    };
+};
+
+

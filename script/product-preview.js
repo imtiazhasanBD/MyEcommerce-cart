@@ -1,7 +1,13 @@
 import { cart,matchingProduct, addToCart,productPreview } from "../script/cart.js";
-import { products } from "../script/products.js";
+import { products,shortedName } from "../script/products.js";
+import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 
 const CartQuantityEl = document.querySelector('.js-cart-quantity');
+
+//delivery date generator  
+const tooday = dayjs();
+const afterThreeDay = tooday.add(3, "days");
+const afterSevenDay = tooday.add(7, "days");
   
 
 //changing document tiitle
@@ -69,7 +75,7 @@ document.querySelector('.product-preview').innerHTML =
 
         <div class="delivery-details">
             <div class="delivery-time">
-                <i class="fa-solid fa-truck"></i> <p>Standard Delivery 23 Oct - 27 Oct</p>
+                <i class="fa-solid fa-truck"></i> <p><b>Standard Delivery</b> ${afterThreeDay.format("DD MMM YY")} - ${afterSevenDay.format("DD MMM YY")}</p>
             <p class="delivery-cost">$${(matchingProduct.delivery / 100).toFixed(2)}</p>
             </div>
             <div class="cash-on-delivery">
@@ -145,7 +151,7 @@ products.forEach((product) =>{
                     <img src="${relatedProduct.image}" alt="">
                 </a>
                 <div class="related-products-name">
-                ${relatedProduct.name}
+                ${shortedName(relatedProduct.name)}
                 </div>
                 <div class="related-products-price">
                 $${(relatedProduct.price/100).toFixed(2)}

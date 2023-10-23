@@ -1,5 +1,6 @@
 import { cart,addToCart, productPreview } from "../script/cart.js";
-import { products } from "../script/products.js";
+import { products, shortedName } from "../script/products.js";
+import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 
 
 // Render Products on homePage
@@ -11,7 +12,8 @@ products.forEach(product =>{
             <img src="${product.image}" alt="">
         </a>
         <div class="product-name">
-            ${product.name}
+            ${shortedName(product.name)}
+
         </div>
         <div class="product-price">
             $${(product.price / 100).toFixed(2)}
@@ -143,9 +145,13 @@ products.forEach(product =>{
 
 // flashsell timer
  setInterval(()=>{
-    const tomorrow = new Date('28 june 2023 23:59:59');
-const today = new Date();
-const totalTime =   tomorrow - today;
+    const tooday = dayjs()
+    const deliverydate = tooday.add(0, "days");
+
+    const setDay = deliverydate.format("DD MMMM YYYY")
+    const tomorrow = new Date(`${setDay} 23:59:59`);
+    const today = new Date();
+    const totalTime =   tomorrow - today;
 
 
 
@@ -156,9 +162,9 @@ let remainSceond = totalSceond % 60
 let remainMinute = totalMinutes % 60
 let remainHour = totalHour % 60
 
-document.querySelector('.second').innerHTML = remainSceond;
-document.querySelector('.minute').innerHTML = remainMinute;
-document.querySelector('.hour').innerHTML =  remainHour;
+document.querySelector('.second').innerHTML = String(remainSceond).padStart(2, '0');;
+document.querySelector('.minute').innerHTML = String(remainMinute).padStart(2, '0');;
+document.querySelector('.hour').innerHTML =  String(remainHour).padStart(2, '0');;
 
  },1000)
 

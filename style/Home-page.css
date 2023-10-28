@@ -180,6 +180,30 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.15);
 }
 
+.just-for-you{
+    color: #757575;
+    margin-left: 50px;
+}
+
+/* load more navigation button */
+
+.navigation-button{
+    margin: 10px 50px 30px 50px;
+    text-align: center;
+  
+}
+.navigation-button .seeMore-btn{
+    padding: 10px 150px;
+    color: #00633f;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid #00633f;
+}
+
+.seeMore-btn:hover{
+    border: 2px solid #00633f;
+}
+
 
 /* Product FlashSell start form here  */ 
 

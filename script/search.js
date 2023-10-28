@@ -1,4 +1,5 @@
-import { searchProducts,shortedName } from "../script/products.js";
+import {products, searchProducts,shortedName } from "../script/products.js";
+import { cart,addToCart } from "../script/cart.js";
 
 
 const searchInput = document.querySelector('.user-input'); 
@@ -34,9 +35,9 @@ function renderProductHtml(newProduct,value){
             document.querySelector('.search-matching-product').innerHTML += 
         `
         <div class="product-item" data-product-item="${product.id}">
-            <a href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${product.id}">
+            <div href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${product.id}">
                 <img src="${product.image}" alt="">
-            </a>
+            </div>
             <div class="product-name">
                 ${shortedName(product.name)}
     
@@ -60,4 +61,40 @@ function renderProductHtml(newProduct,value){
        
     }
      document.querySelector('.number-of-itens').innerHTML = `${newProduct.length} items found for "${value}"`;
-}
+};
+
+
+// Preview product Add Button    
+document.querySelectorAll('.js-product-addBtn').forEach((button) =>{
+    button.addEventListener('click', () =>{
+        const productId = button.dataset.productId;
+        let productName;
+       products.forEach((product) => {
+        if(productId === product.id){
+            productName = product.name
+        };
+       })
+       window.location.href = `Product-preview.html?q=${productName}`;
+    });
+});
+
+
+
+const CartQuantityEl = document.querySelector('.js-cart-quantity');
+//Updating The CartQuantity  
+let cartQuantity = 0;
+
+cart.forEach((item) =>{
+    cartQuantity += item.quantity;
+});
+CartQuantityEl.innerHTML = cartQuantity;
+//search product AddToCart Button
+document.querySelectorAll('.add-btn').forEach((button) => {
+    button.addEventListener('click', () =>{
+     const productId =   button.dataset.productId;
+     addToCart(productId);
+     cartQuantity ++
+     CartQuantityEl.innerHTML = cartQuantity;
+
+    });
+});

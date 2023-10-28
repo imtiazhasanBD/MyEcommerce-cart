@@ -65,20 +65,22 @@ function renderProductHtml(newProduct,value){
 
 
 // Preview product Add Button    
-document.querySelectorAll('.js-product-addBtn').forEach((button) =>{
-    button.addEventListener('click', () =>{
-        const productId = button.dataset.productId;
-        let productName;
-       products.forEach((product) => {
-        if(productId === product.id){
-            productName = product.name
-        };
-       })
-       window.location.href = `Product-preview.html?q=${productName}`;
+function previewProduct(){
+    document.querySelectorAll('.js-product-addBtn').forEach((button) =>{
+        button.addEventListener('click', () =>{
+            const productId = button.dataset.productId;
+            let productName;
+           products.forEach((product) => {
+            if(productId === product.id){
+                productName = product.name
+            };
+           })
+           window.location.href = `Product-preview.html?q=${productName}`;
+        });
     });
-});
+}
 
-
+previewProduct()
 
 const CartQuantityEl = document.querySelector('.js-cart-quantity');
 //Updating The CartQuantity  
@@ -88,13 +90,47 @@ cart.forEach((item) =>{
     cartQuantity += item.quantity;
 });
 CartQuantityEl.innerHTML = cartQuantity;
-//search product AddToCart Button
-document.querySelectorAll('.add-btn').forEach((button) => {
-    button.addEventListener('click', () =>{
-     const productId =   button.dataset.productId;
-     addToCart(productId);
-     cartQuantity ++
-     CartQuantityEl.innerHTML = cartQuantity;
 
-    });
+//search product AddToCart Button
+function productAddToCart(){
+    document.querySelectorAll('.add-btn').forEach((button) => {
+        button.addEventListener('click', () =>{
+         const productId =   button.dataset.productId;
+         addToCart(productId);
+         cartQuantity ++
+         CartQuantityEl.innerHTML = cartQuantity;
+    
+        });
+    });    
+};
+productAddToCart()
+
+//product sort filter
+function ProductSortFilter(){
+    const seleteElement = document.querySelector('#sort-list');
+
+seleteElement.addEventListener('change', (event) =>{
+    const seleteValue = seleteElement.value;
+
+// sort products Low To hight
+if(seleteValue === 'Low To high'){
+   const sortProductsLow = filterProducts.sort((a,b) => a.price - b.price);
+   renderProductHtml(sortProductsLow,query);
+}
+// sort products high To low
+if(seleteValue === 'High To Low'){
+   const sortProductsHigh = filterProducts.sort((a,b) => b.price - a.price);
+   renderProductHtml(sortProductsHigh,query);
+
+};
+previewProduct();
+productAddToCart()
 });
+};
+
+ProductSortFilter()
+
+
+
+
+

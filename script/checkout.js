@@ -179,8 +179,7 @@ if (cart.length === 0 ){
 const searchInput = document.querySelector('.user-input'); 
 const searchBtn = document.querySelector('.search-btn');
 
-searchBtn.addEventListener('click', function (e) {
-    e.preventDefault();
+searchBtn.addEventListener('click',  () => {
     const query = searchInput.value;
     window.location.href = `search-product.html?q=${query}`;
 });

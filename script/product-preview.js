@@ -1,5 +1,7 @@
-import { cart,matchingProduct, addToCart,productPreview } from "../script/cart.js";
+import { cart, addToCart } from "../script/cart.js";
 import { products,shortedName } from "../script/products.js";
+
+
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 
 const CartQuantityEl = document.querySelector('.js-cart-quantity');
@@ -10,12 +12,32 @@ const afterThreeDay = tooday.add(3, "days");
 const afterSevenDay = tooday.add(7, "days");
   
 
+// creating product name from url
+const searchParams = new URLSearchParams(window.location.search);
+const productName = searchParams.get('q');
+
+
+    let matchingProduct;
+    products.forEach((product) =>{
+        if(productName === product.name ){
+             matchingProduct = product;
+        };
+        });
+    
+
+
+
+
 //changing document tiitle
-document.querySelector('title').innerHTML = matchingProduct.name;
+document.querySelector('title').innerHTML = productName;
 
 
 
 //render matching product on page
+
+document.querySelector('.product-url').innerHTML = `<p>Home  / ${matchingProduct.catagory} / ${document.title} </Home>`
+
+
 document.querySelector('.product-preview').innerHTML = 
 
 `       
@@ -147,9 +169,9 @@ products.forEach((product) =>{
         
         <div class="related-products-item">
 
-                <a href="Product-preview.html" class="related-products-photo js-productPreview-addBtn" data-product-id ="${relatedProduct.id}">
+                <div class="related-products-photo js-productPreview-addBtn" data-product-id ="${relatedProduct.id}">
                     <img src="${relatedProduct.image}" alt="">
-                </a>
+                </div>
                 <div class="related-products-name">
                 ${shortedName(relatedProduct.name)}
                 </div>
@@ -185,10 +207,34 @@ document.querySelectorAll('.js-add-TOCart').forEach((button) =>{
     });
 });
 
+
+
 // Preview product Add Button    
 document.querySelectorAll('.js-productPreview-addBtn').forEach((button) =>{
     button.addEventListener('click', () =>{
         const productId = button.dataset.productId;
-          productPreview(productId);
+        let productName;
+          products.forEach((product) => {
+            if(productId === product.id){
+                productName = product.name
+            };
+          });
+          window.location.href = `Product-preview.html?q=${productName}`;
     });
 });
+
+
+
+
+
+// Product Search 
+const searchInput = document.querySelector('.user-input'); 
+const searchForm = document.querySelector('.search-btn');
+// Product Search button
+searchForm.addEventListener('click',  () => {
+    const query = searchInput.value;
+    window.location.href = `search-product.html?q=${query}`;
+});
+
+
+

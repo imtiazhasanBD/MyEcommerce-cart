@@ -1,4 +1,4 @@
-import { cart,addToCart, productPreview } from "../script/cart.js";
+import { cart,addToCart } from "../script/cart.js";
 import { products, shortedName } from "../script/products.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 
@@ -8,9 +8,9 @@ products.forEach(product =>{
 
     const html = `
     <div class="product-item" data-product-item="${product.id}">
-        <a href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${product.id}">
+        <div class="product-photo js-product-addBtn" data-product-id="${product.id}">
             <img src="${product.image}" alt="">
-        </a>
+        </div>
         <div class="product-name">
             ${shortedName(product.name)}
 
@@ -42,9 +42,9 @@ products.forEach(product =>{
     const html = `
     <div class="product-item">
                 
-    <a  href="Product-preview.html" class="product-photo js-product-addBtn" data-product-id="${protuct.id}">
+    <div class="product-photo js-sell-product-addBtn" data-product-id="${protuct.id}">
     <img src="${protuct.image}" alt="">
-    </a>
+    </div>
     <div class="product-name">
     ${protuct.name}
     </div>
@@ -102,12 +102,19 @@ products.forEach(product =>{
     
 
 // Preview product Add Button    
-    document.querySelectorAll('.js-product-addBtn').forEach((button) =>{
+    document.querySelectorAll('.js-product-addBtn, .js-sell-product-addBtn').forEach((button) =>{
         button.addEventListener('click', () =>{
             const productId = button.dataset.productId;
-              productPreview(productId);
+            let productName;
+           products.forEach((product) => {
+            if(productId === product.id){
+                productName = product.name
+            };
+           })
+           window.location.href = `Product-preview.html?q=${productName}`;
         });
     });
+
 
 
 
@@ -208,4 +215,19 @@ let span = document.getElementsByTagName('span');
 	}
 	span[1].onclick = ()=>{right_mover();}
 	span[0].onclick = ()=>{left_mover();}
+
+
+
+// Product Search element
+const searchInput = document.querySelector('.user-input'); 
+const searchForm = document.querySelector('.search-btn');
+// Product Search button
+searchForm.addEventListener('click',  () => {
+    const query = searchInput.value;
+    window.location.href = `search-product.html?search=${query}`;
+});
+
+
+
+//navigation button
 

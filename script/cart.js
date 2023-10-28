@@ -1,5 +1,3 @@
-import { products } from "../script/products.js";
-
 export let cart =  JSON.parse(localStorage.getItem('cart'));
 
 
@@ -21,7 +19,6 @@ if(!cart){
 
  export function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
-    localStorage.setItem('matchingProduct', JSON.stringify(matchingProduct));
   }
 
 
@@ -74,33 +71,6 @@ if(!cart){
 
 
 
-
-
-   export  let matchingProduct = JSON.parse(localStorage.getItem('matchingProduct'));
-
-     if(!matchingProduct){
-         matchingProduct = {
-             id: '11448965',
-             image:  'images/protuct image/pexels-mstudio-1240892.jpg',
-             name: 'Sneakers for Men Casual Shoes for Men',
-             price: '2090',
-             delivery: '200',
-             rating: 'images/rating-4.png'
-         }
-     }
      
+       
 
-     
-       export function productPreview(productId){
-         products.forEach((product) =>{
-             if(productId === product.id ){
-                  matchingProduct = product;
-             }
-            
-         })
-     
-         saveToStorage();    
-         
-     }
-   
-     

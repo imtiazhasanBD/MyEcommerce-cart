@@ -1,4 +1,4 @@
-import { cart,productPreview,removeFromCart } from "../script/cart.js";
+import { cart,removeFromCart } from "../script/cart.js";
 import { products } from "../script/products.js";
 
 
@@ -35,9 +35,9 @@ cart.forEach((cartItem) =>{
 
         <div class="cart-product-title">
 
-            <a href="Product-preview.html" class="order-product-image" data-product-id="${matcheingProduct.id}">
+            <div class="order-product-image" data-product-id="${matcheingProduct.id}">
                 <img src="${matcheingProduct.image}">
-            </a>
+            </div>
           
             <div class="order-product-detalis">
 
@@ -139,7 +139,13 @@ document.querySelectorAll('.order-product-image').forEach((button) =>{
     
     button.addEventListener('click', () =>{
         const productId = button.dataset.productId;
-        productPreview(productId);
+        let productName;
+          products.forEach((product) => {
+            if(productId === product.id){
+                productName = product.name
+            };
+          });
+          window.location.href = `Product-preview.html?q=${productName}`;
     });
 });
 
@@ -167,3 +173,14 @@ if (cart.length === 0 ){
     `;
 };
 
+
+
+// Product Search button
+const searchInput = document.querySelector('.user-input'); 
+const searchBtn = document.querySelector('.search-btn');
+
+searchBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const query = searchInput.value;
+    window.location.href = `search-product.html?q=${query}`;
+});

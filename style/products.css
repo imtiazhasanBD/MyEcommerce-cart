@@ -1,0 +1,93 @@
+.product-item{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 14px;
+    background-color: white;
+    padding: 4px 15px 15px 15px ;
+    margin-bottom: 15px;
+}
+
+
+.product-photo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    margin-bottom:  20px;
+    cursor: pointer;
+}
+
+.product-photo img{
+    max-height: 100%;
+    max-width: 100%;  
+}
+
+
+.product-name{
+    height: 40px;
+}
+
+.product-item .product-price{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.product-rating img{
+    height: auto;
+    margin: 0 auto;
+    max-height: 60%;
+    max-width: 60%;
+    width: auto;
+}
+
+.addToCart-btn {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+.addToCart-btn button{
+    width: 100%;
+    padding: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.added-btn{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.addCart-btn-visibility{
+    opacity: 1;
+    transform: none;
+}
+
+
+
+.added-btn img{
+    height: 22px;
+}
+
+
+
+.addToCart-btn .addCart-btn :hover{
+    background-color: #00633f;
+    border: none;
+    font-weight: bold;
+    color: white;
+
+}
+
+.product-item:hover{
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.15);
+}

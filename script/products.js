@@ -34,9 +34,9 @@ export const products = [{
     rating: 'images/rating-4.png' ,
     catagory:'backpack'
 },
-{   id: '112233',
+{   id: '117896543133',
     image:  'images/protuct image/LED waterproof electronic watch INS wind nylon strap watch European .jpg',
-    name: 'LED waterproof electronic watch INS wind nylon strap ',
+    name: 'LED waterproof electronic watch INS wind nylon strap',
     price: '6030',
     delivery: '350',
     rating: 'images/rating-4.png' ,
@@ -188,4 +188,8 @@ export function shortedName(name) {
     };
 };
 
-
+// products search filter
+export function searchProducts(query) {
+    query = query.toLowerCase();
+    return products.filter(product => product.name.toLowerCase().includes(query) || product.catagory.toLowerCase().includes(query));
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png" type="x-icon">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/search-product.css">
+    <link rel="stylesheet" href="style/products.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+   
+    <title>Ecart Mart</title>
+</head>
+<body>
+
+
+<div class="main-container">
+
+        <div class="topbar">
+
+            <div class="top-left">
+                
+                <p> <i class="fa-solid fa-phone">+01856666666</i> </p>
+            </div>
+
+            <div class="top-mid">
+                <p>Get 50% Off Selected Product</p>
+            </div>
+
+            <div class="top-right">
+                <div class="top-right-cos">
+                    <p>CUSTOMER CARE</p>
+                    <p>TRACK MY ORDER</p>
+                    <p>SIGNUP / LOGIN</p>
+
+                </div>
+            <div class="right-seletebar">
+                    <select name="" id="">
+                        <option value="">Eng</option>
+                      </select>
+                      <select name="" id="">
+                        <option value="">Location</option>
+                      </select>
+             
+                </div>
+        </div>
+
+
+    </div>
+
+        <div class="header">
+
+            <a href="index.html" class="logo" ><img src="images/logo.png" alt="">
+                <h1>Ecart Mart</h1>
+            </a>
+            
+         <div class="scerchbar">
+                <input class="user-input" type="text" placeholder="Search Product.." name="search">
+                <button class="search-btn" type="submit"><i class="fa fa-search"></i>
+                </button>
+         </div>
+
+         <div class="user-cart">
+            <div class="cart-items">
+                 
+                <div class="login-btn">
+                    <i class="fa-regular fa-user"></i>
+                <p>Account</p>
+                
+                </div>
+
+                <div class="cart-btn">
+                    <a href="checkout-page.html" class="fa-solid fa-cart-shopping cart-icon"></a>
+                <div class="js-cart-quantity cart-quantity"></div>
+                </div>
+                
+            </div>
+            
+         </div>
+        
+           
+
+    </div>
+
+    <section class="search-item-container">
+        <div class="product-filter">
+            <h1>Filters</h1>
+            <div class="product-catagory">
+                <h3>Catagory</h3>
+                <label class="cg1">
+                    <input type="checkbox" >
+                    <span>Men's Sneakers</span>
+                </label>
+                <label for="cg1">
+                    <input type="checkbox" >
+                    <span>Boys' Sneakers</span>
+                </label>
+                <label for="cg1">
+                    <input type="checkbox" >
+                    <span>Men's Sports Sneakers</span>
+                </label>
+                <label for="cg1">
+                    <input type="checkbox" >
+                    <span>Men's Flip Flops</span>
+                </label>
+                
+            </div>
+            <div class="product-brand">
+                <div class="product-catagory">
+                    <h3>Brands</h3>
+                    <label class="cg1">
+                        <input type="checkbox" >
+                        <span>Nike</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>Adidas</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>Nike</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>Campus</span>
+                    </label>
+                    
+                </div>
+            </div>
+            <div class="product-price">
+                <div class="product-catagory">
+                    <h3>Price $</h3>
+                    <label class="cg1">
+                        <input type="checkbox" >
+                        <span>under - 50</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>50 - 100</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>100 - 200</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>200 - over</span>
+                    </label>
+                    
+                </div>
+            </div>
+            <div class="product-color">
+                <div class="product-catagory">
+                    <h3>Colors</h3>
+                    <label class="cg1">
+                        <input type="checkbox" >
+                        <span>Black</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>Blue</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>White</span>
+                    </label>
+                    <label for="cg1">
+                        <input type="checkbox" >
+                        <span>Red</span>
+                    </label>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="search-product-container">
+
+            <div class="search-product-filter">
+                <p class="number-of-itens">160,229 items found for "shoe"</p>
+                <div class="selete-filter">
+                    <label >Sort by:</label>
+                    <select id="sort-list">
+                      <option value="volvo">Best Match</option>
+                      <option value="saab">Top Sell</option>
+                      <option value="opel">New Arrivals</option>
+                      <option value="audi">Low To hight</option>
+                      <option value="audi">Hight To Low</option>
+                    </select>
+                </div>
+           
+            </div>
+            <div class="search-matching-product">
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+    <script src="https://kit.fontawesome.com/4bacff8f96.js" crossorigin="anonymous"></script>
+    <script type="module" src="script/search.js"></script> 
+          
+</body>
+</html>

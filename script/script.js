@@ -4,8 +4,26 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 
 
 // Render Products on homePage
-products.forEach(product =>{
+const productPerPage = 12;
+let currentPage = 1;
 
+function displayProduct(page){
+     const start = (page -1) * productPerPage;
+     const end = start + productPerPage;
+     const productToDisplay = products.slice(start,end);
+     currentPage++;
+     productToDisplay.forEach(product => productHtmlTemplate(product)); 
+     if(end > productToDisplay.length){
+        loadMoreBtn.style.display = "none"}; 
+};
+// display product to page
+displayProduct(currentPage);
+
+
+
+
+/// products html template
+function productHtmlTemplate(product){
     const html = `
     <div class="product-item" data-product-item="${product.id}">
         <div class="product-photo js-product-addBtn" data-product-id="${product.id}">
@@ -31,10 +49,7 @@ products.forEach(product =>{
     
     `
     document.querySelector('.product-container').innerHTML += html;
-});
-
-
-
+}
 
  /* render FlashSell Products */
  products.forEach((protuct) =>{
@@ -89,6 +104,7 @@ products.forEach(product =>{
 
 
 // Products Add to cart Button 
+function productAddToCartBtn(){
     document.querySelectorAll('.add-btn').forEach((button) => {
 
         button.addEventListener('click', () =>{
@@ -98,22 +114,28 @@ products.forEach(product =>{
  
         });
     });
+};
+productAddToCartBtn()
 
     
 
 // Preview product Add Button    
-    document.querySelectorAll('.js-product-addBtn, .js-sell-product-addBtn').forEach((button) =>{
-        button.addEventListener('click', () =>{
-            const productId = button.dataset.productId;
-            let productName;
-           products.forEach((product) => {
-            if(productId === product.id){
-                productName = product.name
-            };
-           })
-           window.location.href = `Product-preview.html?q=${productName}`;
-        });
+function ProductPreviewBtn(){
+document.querySelectorAll('.js-product-addBtn, .js-sell-product-addBtn').forEach((button) =>{
+    button.addEventListener('click', () =>{
+        const productId = button.dataset.productId;
+        let productName;
+        products.forEach((product) => {
+        if(productId === product.id){
+            productName = product.name
+        };
+        })
+        window.location.href = `Product-preview.html?q=${productName}`;
     });
+});
+};
+
+ProductPreviewBtn()
 
 
 
@@ -225,4 +247,14 @@ const searchBtn = document.querySelector('.search-btn');
 searchBtn.addEventListener('click',  () => {
     const query = searchInput.value;
     window.location.href = `search-product.html?q=${query}`;
+});
+
+
+/// product load more button
+const loadMoreBtn = document.querySelector('.seeMore-btn');
+
+loadMoreBtn.addEventListener('click', () =>{
+    displayProduct(currentPage);
+    ProductPreviewBtn();
+    productAddToCartBtn();
 });

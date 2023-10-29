@@ -2,7 +2,7 @@ export const products = [{
     id: '11448965',
     image:  'images/protuct image/knit-athletic-sneakers-pink.webp',
     name: 'knit-athletic-sneakers-pink',
-    price: '2090',
+    price: '20000',
     delivery: '200',
     rating: 'images/rating-4.png',
     catagory:'Footwear'
@@ -81,7 +81,7 @@ export const products = [{
     id: '8651358',
     image:  'images/protuct image/round-airtight-food-storage-containers.jpg',
     name: 'Round airtight food storage containers',
-    price: '3058',
+    price: '30058',
     delivery: '380',
     rating: 'images/rating-4.png' ,
     catagory:'kitchen'

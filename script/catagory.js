@@ -1,6 +1,3 @@
-import { products } from "../script/products.js";
-
-
 //render catagory on page
 const catagoryHtml = `
 
@@ -168,54 +165,6 @@ const catagoryHtml = `
 `;
 
 
-
 document.querySelector('.catagory-bar').innerHTML = catagoryHtml;
 
 
-
-
-
-    
-
-document.querySelector('.search-btn').addEventListener('click', () =>{
-    const userInput = document.querySelector('.user-input').value;
-    let matcheingProduct ;
-   
-    products.forEach(product =>{
-
-        if( userInput === product.catagory){
-            matcheingProduct = product;
-
-            const html = `
-            <div class="product-item js-product-addBtn" data-product-item="${matcheingProduct.name}">
-                <div class="product-photo">
-                    <img src="${matcheingProduct.image}" alt="">
-                </div>
-                <div class="product-name">
-                    ${matcheingProduct.name}
-                </div>
-                <div class="product-price">
-                    $${(matcheingProduct.price / 100).toFixed(2)}
-                </div>
-                <div class="product-rating">
-                    <img src="${matcheingProduct.rating}" alt="">
-                </div>
-                <div class="addToCart-btn">
-                <div class="addCart-btn">
-                <button class="add-btn" data-product-id ="${matcheingProduct.id}">Add Cart</button>
-                </div>
-                <div class="added-btn js-added-to-cart"><img src="images/checkmark.png">Added</div>   
-                </div>
-            </div> 
-            
-            `
-            document.querySelector('.product-container').innerHTML = html;
-            
-        }
-       
-        
-    });
-
-
-
-})

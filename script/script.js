@@ -49,7 +49,7 @@ function productHtmlTemplate(product){
     
     `
     document.querySelector('.product-container').innerHTML += html;
-}
+};
 
  /* render FlashSell Products */
  products.forEach((protuct) =>{
@@ -81,8 +81,8 @@ function productHtmlTemplate(product){
 </div>  
     
     `
-    document.querySelector('.sell-items').innerHTML += html
-})
+    document.querySelector('.sell-items').innerHTML += html;
+});
 
 
 
@@ -115,7 +115,7 @@ function productAddToCartBtn(){
         });
     });
 };
-productAddToCartBtn()
+productAddToCartBtn();
 
     
 
@@ -135,7 +135,7 @@ document.querySelectorAll('.js-product-addBtn, .js-sell-product-addBtn').forEach
 });
 };
 
-ProductPreviewBtn()
+ProductPreviewBtn();
 
 
 
@@ -165,7 +165,7 @@ ProductPreviewBtn()
     }else{
         imgTag.src = imgSlider[count]
     }
- }, 5000)
+ }, 5000);
 
 
 
@@ -195,7 +195,7 @@ document.querySelector('.second').innerHTML = String(remainSceond).padStart(2, '
 document.querySelector('.minute').innerHTML = String(remainMinute).padStart(2, '0');;
 document.querySelector('.hour').innerHTML =  String(remainHour).padStart(2, '0');;
 
- },1000)
+ },1000);
 
 
 

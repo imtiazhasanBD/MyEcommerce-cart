@@ -16,10 +16,10 @@ searchBtn.addEventListener('click',  () => {
 // recive user search input from url
 const searchParams = new URLSearchParams(window.location.search);
 const query = searchParams.get('q');
-const filterProducts = searchProducts(query);
+let filterProducts = searchProducts(query);
 
 // run render product function
-renderProductHtml(filterProducts,query)
+renderProductHtml(filterProducts,query);
 
 
 
@@ -78,9 +78,9 @@ function previewProduct(){
            window.location.href = `Product-preview.html?q=${productName}`;
         });
     });
-}
+};
 
-previewProduct()
+previewProduct();
 
 const CartQuantityEl = document.querySelector('.js-cart-quantity');
 //Updating The CartQuantity  
@@ -103,34 +103,70 @@ function productAddToCart(){
         });
     });    
 };
-productAddToCart()
+productAddToCart();
 
-//product sort filter
+
+
+//product sort by price low/high
 function ProductSortFilter(){
     const seleteElement = document.querySelector('#sort-list');
 
-seleteElement.addEventListener('change', (event) =>{
+seleteElement.addEventListener('change', () =>{
     const seleteValue = seleteElement.value;
 
 // sort products Low To hight
 if(seleteValue === 'Low To high'){
-   const sortProductsLow = filterProducts.sort((a,b) => a.price - b.price);
-   renderProductHtml(sortProductsLow,query);
-}
+    filterProducts = filterProducts.sort((a,b) => a.price - b.price);
+   renderProductHtml(filterProducts,query);
+};
 // sort products high To low
 if(seleteValue === 'High To Low'){
-   const sortProductsHigh = filterProducts.sort((a,b) => b.price - a.price);
-   renderProductHtml(sortProductsHigh,query);
+   filterProducts  = filterProducts.sort((a,b) => b.price - a.price);
+   renderProductHtml(filterProducts,query);
 
 };
 previewProduct();
-productAddToCart()
+productAddToCart();
 });
 };
 
-ProductSortFilter()
+ProductSortFilter();
+
+//product filter
+const filterInput = document.querySelectorAll('.product-price .product-catagory input');
+
+filterInput.forEach((button) =>{
+    button.addEventListener('change', ()=>{
+        if(button.checked){
+           const value = Number(button.value);
+           filterProductByPrice(value);
+        }else{
+             filterProducts = searchProducts(query);
+            renderProductHtml(filterProducts,query);
+        };
+        previewProduct();
+        productAddToCart();
+    });
+});
 
 
+// products filter by price range
+function filterProductByPrice(price){
 
+    if(price=== 50){
+        filterProducts = filterProducts.filter(product => product.price < price*100);
+  
+    }else if(price=== 100){
+        filterProducts = filterProducts.filter(product => product.price >= 50*100 && product.price <= price*100);
+
+    }else if(price=== 200){
+        filterProducts = filterProducts.filter(product => product.price > 100*100 && product.price <= price*100);
+    }
+    else if(price=== 201){
+        filterProducts = filterProducts.filter(product => product.price >= price*100);
+    };
+    
+   renderProductHtml(filterProducts,query);
+};
 
 

@@ -11,7 +11,7 @@ if(!cart){
         productId: '456321',
         quantity: 1
       }];
-}
+};
 
 
 
@@ -19,7 +19,7 @@ if(!cart){
 
  export function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
-  }
+  };
 
 
 
@@ -32,7 +32,7 @@ if(!cart){
          cart.forEach((item) =>{
              if(productId === item.productId){
                  matcheingItem = item;
-             }
+             };
          });
 
          if(matcheingItem){
@@ -43,11 +43,11 @@ if(!cart){
                  quantity: 1,
                 
               });
-         }
+         };
 
          saveToStorage();
          
-     }
+     };
 
 
 
@@ -65,7 +65,7 @@ if(!cart){
             cart = newCart;
             saveToStorage(); 
     
-     }
+     };
 
 
 

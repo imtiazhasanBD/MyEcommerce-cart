@@ -236,5 +236,11 @@ searchBtn.addEventListener('click',  () => {
     window.location.href = `search-product.html?q=${query}`;
 });
 
-
+//enter key button
+searchInput.addEventListener('keyup', (even) =>{
+    if(even.key === 'Enter'){
+        const query = searchInput.value;
+        window.location.href = `search-product.html?q=${query}`;
+    }
+})
 

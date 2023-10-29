@@ -11,6 +11,13 @@ searchBtn.addEventListener('click',  () => {
     window.location.href = `search-product.html?q=${query}`;
 });
 
+//enter key button
+searchInput.addEventListener('keyup', (even) =>{
+    if(even.key === 'Enter'){
+        const query = searchInput.value;
+        window.location.href = `search-product.html?q=${query}`;
+    }
+})
 
 
 // recive user search input from url
@@ -165,7 +172,7 @@ function filterProductByPrice(price){
     else if(price=== 201){
         filterProducts = filterProducts.filter(product => product.price >= price*100);
     };
-    
+
    renderProductHtml(filterProducts,query);
 };
 

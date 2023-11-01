@@ -1,9 +1,10 @@
 import { cart,addToCart } from "../script/cart.js";
-import { products, shortedName } from "../script/products.js";
+import { products, shortedName, dealShortedName } from "../script/products.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"
 
 
 // Render Products on homePage
+const productContainer = document.querySelector('.product-container')
 const productPerPage = 12;
 let currentPage = 1;
 
@@ -12,8 +13,11 @@ function displayProduct(page){
      const end = start + productPerPage;
      const productToDisplay = products.slice(start,end);
      currentPage++;
-     productToDisplay.forEach(product => productHtmlTemplate(product)); 
-     if(end > productToDisplay.length){
+     productToDisplay.forEach((product) =>{
+        const ProductHtml = productHtmlTemplate(product);
+        productContainer.innerHTML += ProductHtml;
+     }); 
+     if(end > products.length){
         loadMoreBtn.style.display = "none"}; 
 };
 // display product to page
@@ -37,7 +41,8 @@ function productHtmlTemplate(product){
             $${(product.price / 100).toFixed(2)}
         </div>
         <div class="product-rating">
-            <img src="${product.rating}" alt="">
+            <img src="images/ratings/rating-${product.rating.stars * 10}.png">
+            <div class="product-rating-count">(${product.rating.count})</div>
         </div>
         <div class="addToCart-btn">
         <div class="addCart-btn">
@@ -48,7 +53,7 @@ function productHtmlTemplate(product){
     </div> 
     
     `
-    document.querySelector('.product-container').innerHTML += html;
+   return html
 };
 
  /* render FlashSell Products */
@@ -265,4 +270,27 @@ loadMoreBtn.addEventListener('click', () =>{
     displayProduct(currentPage);
     ProductPreviewBtn();
     productAddToCartBtn();
+});
+
+
+//Fashion Top Deals product
+const fashionProductContainer = document.querySelector('.fashion-deals-product')
+products.forEach((product) =>{
+    if(product.catagory === 'fashion'){
+        const productHtml = `
+    <div class="product-item">             
+        <div class="product-photo js-sell-product-addBtn" data-product-id="${product.id}">
+        <img src="${product.image}" alt="">
+        </div>
+        <div class="product-name">
+        ${dealShortedName(product.name)}
+        </div>
+        <div id="dis-pertenage">Up To 50% Off
+        </div>  
+    </div>  
+
+        `
+
+        fashionProductContainer.innerHTML += productHtml;
+    };
 });

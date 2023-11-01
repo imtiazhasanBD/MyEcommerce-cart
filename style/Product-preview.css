@@ -254,12 +254,15 @@ body{
     font-size: 20px;
 }
 
+.related-products-rating {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
 .related-products-rating img{
-    height: auto;
-    margin: 0 auto;
     max-height: 60%;
     max-width: 60%;
-    width: auto;
+    
 }
 
 .addToCart-btn {

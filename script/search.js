@@ -53,7 +53,8 @@ function renderProductHtml(newProduct,value){
                 $${(product.price / 100).toFixed(2)}
             </div>
             <div class="product-rating">
-                <img src="${product.rating}" alt="">
+            <img src="images/ratings/rating-${product.rating.stars * 10}.png">
+            <div class="product-rating-count">(${product.rating.count})</div>
             </div>
             <div class="addToCart-btn">
             <div class="addCart-btn">
@@ -64,12 +65,58 @@ function renderProductHtml(newProduct,value){
         </div> 
         
         `;
+        
         });
        
     }
      document.querySelector('.number-of-itens').innerHTML = `${newProduct.length} items found for "${value}"`;
 };
 
+// brand filter html 
+let productBand = []
+filterProducts.forEach((product) =>{
+        productBand.push(product.brand);
+        
+    
+    document.querySelector('.product-brand .product-catagory').innerHTML += `
+<label>
+    <input type="checkbox" value="${product.brand}" >
+    <span>${product.brand}</span>
+</label>
+    `
+});
+
+// catagory filter html
+let productKeyword = [];
+filterProducts.forEach((product) =>{
+
+  const productKey  = product.keywords;
+  productKeyword.push(productKey);
+   
+});
+
+// Create a Set to store unique words
+const uniqueWords = new Set();
+
+// Iterate through the arrays and add unique words to the Set
+productKeyword.forEach(subArray => {
+  subArray.forEach(word => {
+    uniqueWords.add(word.toLowerCase());
+  });
+});
+
+// Convert the Set back to an array
+const uniqueWordsArray = [...uniqueWords];
+
+uniqueWordsArray.forEach((keyword) =>{
+    document.querySelector('.product-catagory-list').innerHTML += 
+    `
+    <spam>${keyword}</spam>
+    `
+});
+
+
+  
 
 // Preview product Add Button    
 function previewProduct(){
@@ -140,13 +187,15 @@ productAddToCart();
 ProductSortFilter();
 
 //product filter
-const filterInput = document.querySelectorAll('.product-price .product-catagory input');
+const filterInput = document.querySelectorAll('.product-catagory input');
 
 filterInput.forEach((button) =>{
     button.addEventListener('change', ()=>{
         if(button.checked){
-           const value = Number(button.value);
-           filterProductByPrice(value);
+           const priceValue = Number(button.value);
+           const brandName = button.value
+           filterProductByPrice(priceValue);
+           console.log(brandName)
         }else{
              filterProducts = searchProducts(query);
             renderProductHtml(filterProducts,query);
@@ -176,4 +225,10 @@ function filterProductByPrice(price){
    renderProductHtml(filterProducts,query);
 };
 
+
+// products filter by price range
+function filterProductByBrand(brand) {
+        filterProducts = filterProducts.filter(product => product.brand.toLowerCase().includes(brand.toLowerCase()));
+        renderProductHtml(filterProducts,query);
+}
 

@@ -1,11 +1,22 @@
 export const products = [{
     id: '11448965',
     image:  'images/protuct image/knit-athletic-sneakers-pink.webp',
-    name: 'knit-athletic-sneakers-pink',
+    name: 'Waterproof Knit Athletic Sneakers - Pink',
     price: '20000',
     delivery: '200',
-    rating: 'images/rating-4.png',
-    catagory:'Footwear'
+    rating: {
+        stars: 4.5,
+        count: 305
+      },
+    catagory:'Footwear',
+    brand: 'Gucci',
+    keywords: [
+      "Shoes",
+      "Running shoes",
+      "Footwear",
+      "Womens",
+      "Womens shoes"
+    ]
 },
 {   
     id: '565842',
@@ -13,8 +24,17 @@ export const products = [{
     name: 'Premium Quality - Black Analog Watch For-Men',
     price: '3060',
     delivery: '500',
-    rating: 'images/rating-4.png' ,
-    catagory:'watch' 
+    rating: {
+        stars: 3.5,
+        count: 105
+      } ,
+    catagory:'watch' ,
+    brand: 'Curren',
+    keywords: [
+      "Watch",
+      "Men watch",
+      "Analog watch",
+    ]
 },
 {
     id: '852963',
@@ -22,33 +42,74 @@ export const products = [{
     name: 'Pure Leather Wallet For Men',
     price: '1060',
     delivery: '600',
-    rating: 'images/rating-4.png',
-    catagory:'wallet' 
+    rating: {
+        stars: 5,
+        count: 255
+      },
+    catagory:'wallet' ,
+    brand: 'Gucci',
+    keywords: [
+      "Leather",
+      "Men wallet",
+      "Men",
+      "Pure leather"
+    ]
 },
 {
     id: '456321',
     image:  'images/protuct image/Xiaomi Mi Mini Stylish Backpack Colour -Black.webp',
-    name: 'Xiaomi Mi Mini Stylish Backpack Colour - Black',
+    name: 'Xiaomi Mi Mini Stylish Backpack Color - Black',
     price: '4060',
     delivery: '300',
-    rating: 'images/rating-4.png' ,
-    catagory:'backpack'
+    rating: {
+        stars: 3.5,
+        count: 68
+      } ,
+    catagory:'backpack',
+    brand: 'Xiaomi ',
+    keywords: [
+      "Fashion Backpacks",
+      "Unisex Backpack",
+      "Hiking Backpack"
+    ]
 },
 {   id: '117896543133',
     image:  'images/protuct image/LED waterproof electronic watch INS wind nylon strap watch European .jpg',
     name: 'LED waterproof electronic watch INS wind nylon strap',
     price: '6030',
     delivery: '350',
-    rating: 'images/rating-4.png' ,
-    catagory:'watch'
+    rating: {
+        stars: 5,
+        count: 55
+      },
+    catagory:'watch',
+    brand:'Canvas',
+    keywords: [
+      "Watch",
+      "Men watch",
+      "Led watch",
+      "Smart Watch"
+    ]
+    
 },
 {   id: '223344',
     image:  'images/protuct image/Trendy Fashionable Cotton Polo Shirt For Men.webp',
     name: 'Trendy Fashionable Cotton Polo Shirt For Men',
     price: '2088',
     delivery: '450',
-    rating: 'images/rating-4.png' ,
-    catagory:'fashion'
+    rating: {
+        stars: 4.5,
+        count: 35
+      } ,
+    catagory:'fashion',
+    brand: 'Lacoste',
+    keywords: [
+      "Polo Shirt",
+      "Men shirt",
+      "T-Shirt",
+      "Cotton"
+    ]
+    
 },
 {
     id: '475621',
@@ -56,8 +117,18 @@ export const products = [{
     name: 'New Stylish Fashionable Soft A.T Leather Sandal',
     price: '5555',
     delivery: '550',
-    rating: 'images/rating-4.png' ,
-    catagory:'Footwear'
+    rating: {
+        stars: 2.5,
+        count: 95
+      } ,
+    catagory:'Footwear',
+    brand: 'Nike',
+    keywords: [
+      "Sandal",
+      "Men Sandal",
+      "Leather Sandal",
+      "Pure leather "
+    ]
 },
 {
     id: '47585621',
@@ -65,8 +136,20 @@ export const products = [{
     name: 'Men athletic shoes green',
     price: '11000',
     delivery: '500',
-    rating: 'images/rating-4.png' ,
-    catagory:'Footwear'
+    rating: {
+        stars: 3,
+        count: 205
+      } ,
+    catagory:'Footwear',
+    brand: 'Adidas',
+    keywords: [
+      "shoes",
+      "shoe",
+      "running shoes",
+      "footwear",
+      "men",
+      "men shoes"
+    ]
 },
 {
     id: '585235621',
@@ -74,8 +157,17 @@ export const products = [{
     name: 'Electric glass and steel hot water kettle',
     price: '650',
     delivery: '500',
-    rating: 'images/rating-4.png' ,
-    catagory:'kitchen'
+    rating: {
+        stars: 4.5,
+        count: 120
+      } ,
+    catagory:'kitchen',
+    brand: 'Chunlan',
+    keywords: [
+      "water boiler",
+      "appliances",
+      "kitchen"
+    ]
 },
 {
     id: '8651358',
@@ -83,8 +175,17 @@ export const products = [{
     name: 'Round airtight food storage containers',
     price: '30058',
     delivery: '380',
-    rating: 'images/rating-4.png' ,
-    catagory:'kitchen'
+    rating: {
+        stars: 3.5,
+        count: 80
+      } ,
+    catagory:'kitchen',
+    brand: 'Rubbermaid',
+    keywords: [
+      "boxes",
+      "food containers",
+      "kitchen"
+    ]
 },
 {
     id: '4788821',
@@ -92,8 +193,17 @@ export const products = [{
     name: 'Round-sunglasses-black',
     price: '3056',
     delivery: '500',
-    rating: 'images/rating-4.png' ,
-    catagory:'fashion'
+    rating: {
+        stars: 1.5,
+        count: 33
+      } ,
+    catagory:'fashion',
+    brand: 'Ray-Ban',
+    keywords: [
+      "Men Sunglass",
+      "accessories",
+      "shades"
+    ]
 },
 {
     id: '85369425',
@@ -101,8 +211,19 @@ export const products = [{
     name: 'Gorgeous Looking Colorful AntibAir LED Digital Sports Watch',
     price: '8656',
     delivery: '500',
-    rating: 'images/rating-4.png' ,
-    catagory:'watch'
+    rating: {
+        stars: 4.5,
+        count: 77
+      },
+    catagory:'watch',
+    brand: 'Xiaomi',
+    keywords: [
+      "Watch",
+      "Men watch",
+      "Led watch",
+      "Smart Watch",
+      "Sports Watch"
+    ]
 },
 {
     id: '7652369',
@@ -110,8 +231,17 @@ export const products = [{
     name: '6-piece-white-dinner-plate-set',
     price: '4520',
     delivery: '550',
-    rating: 'images/rating-4.png' ,
-    catagory:'kitchen'
+    rating: {
+        stars: 4,
+        count: 96
+      } ,
+    catagory:'kitchen',
+    brand: 'No brand',
+    keywords: [
+      "plates",
+      "kitchen",
+      "dining"
+    ]
 },
 {
     id: '45862252',
@@ -119,8 +249,16 @@ export const products = [{
     name: '6-piece-non-stick-baking-set',
     price: '5555',
     delivery: '550',
-    rating: 'images/rating-4.png' ,
-    catagory:'kitchen'
+    rating: {
+        stars: 4.5,
+        count: 235
+      },
+    catagory:'kitchen',
+    brand: 'Wilton',
+    keywords: [
+      "kitchen",
+      "cookware"
+    ]
 },
 {
     id: '963528',
@@ -128,8 +266,20 @@ export const products = [{
     name: 'Goloen Wolf Men Laptop Backpack Anti-Theft Travel Bags - Black Gb00444',
     price: '4055',
     delivery: '550',
-    rating: 'images/rating-4.png' ,
-    catagory:'backpack'
+    rating: {
+        stars: 4.5,
+        count: 35
+      } ,
+    catagory:'backpack',
+    brand: 'Arctic-hunte',
+    keywords: [
+      "Travels bags",
+      "Laptop Backpack",
+      "Smart Backpack",
+      "Fashion Backpacks",
+      "Unisex Backpack",
+      "Hiking Backpack"
+    ]
 },
 {
     id: '78964253',
@@ -137,8 +287,16 @@ export const products = [{
     name: 'Non-stick-cooking-set-15-pieces',
     price: '7555',
     delivery: '450',
-    rating: 'images/rating-4.png' ,
-    catagory:'kitchen'
+    rating: {
+        stars: 3.5,
+        count: 78
+      } ,
+    catagory:'kitchen',
+    brand: 'Meie',
+    keywords: [
+      "cooking set",
+      "kitchen"
+    ]
 },
 {
     id: '4586458622252',
@@ -146,17 +304,36 @@ export const products = [{
     name: 'Plain hooded fleece sweatshirt-yellow',
     price: '3550',
     delivery: '200',
-    rating: 'images/rating-4.png' ,
-    catagory:'fashion'
+    rating: {
+        stars: 4.5,
+        count: 65
+      },
+    catagory:'fashion',
+    brand: 'Balmain',
+    keywords: [
+      "sweaters",
+      "hoodies",
+      "apparel",
+      "mens"
+    ]
 },
 {
     id: '458475262252',
     image:  'images/protuct image/men-chino-pants-beige.jpg',
-    name: 'Men-chino-pants-beige',
+    name: "Men's Classic-fit Pleated Chino Pants",
     price: '2550',
     delivery: '200',
-    rating: 'images/rating-4.png' ,
-    catagory:'fashion'
+    rating: {
+        stars: 2,
+        count: 165
+      } ,
+    catagory:'fashion',
+    brand: 'Lee',
+    keywords: [
+      "pants",
+      "apparel",
+      "mens"
+    ]
 },
 {
     id: '4778882252',
@@ -164,17 +341,72 @@ export const products = [{
     name: 'BP-30 Chicago Camera Backpack: Your Compact',
     price: '5600',
     delivery: '200',
-    rating: 'images/rating-4.png' ,
-    catagory:'backpack'
+    rating: {
+        stars: 3.5,
+        count: 55
+      } ,
+    catagory:'backpack',
+    brand: 'Bellroy',
+    keywords: [
+      "Cemera Backpack",
+      "Fashion Backpacks",
+      "Unisex Backpack",
+      "Hiking Backpack"
+    ]
+},
+{
+    id: '8b5a2ee1-6055-422a-a666-b34ba28b76d',
+    image:  'images/protuct image/men-golf-polo-t-shirt-blue.jpg',
+    name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
+    price: '1599',
+    delivery: '200',
+    rating: {
+        stars: 2.5,
+        count: 155
+      } ,
+    catagory:'fashion',
+    brand: 'Bellroy',
+    keywords: [
+      "tshirts",
+      "shirts",
+      "apparel",
+      "mens"
+    ]
 },
 {
     id: '262252',
     image:  'images/protuct image/liquid-laundry-detergent-plain.jpg',
-    name: 'Liquid laundry detergent plain',
+    name: 'Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz',
     price: '2550',
     delivery: '200',
-    rating: 'images/rating-4.png' ,
-    catagory:'laundry'
+    rating: {
+        stars: 3.5,
+        count: 43
+      } ,
+    catagory:'cleaning',
+    brand: 'Solimo',
+    keywords: [
+      "bathroom",
+      "cleaning"
+    ]
+},
+{
+    id: '83d4ca15-0f35-48f5-b7a3-1ea210004f2e',
+    image:  'images/protuct image/adults-plain-cotton-tshirt-2-pack-teal.jpg',
+    name: 'Adults Plain Cotton T-Shirt - 2 Pack',
+    price: '799',
+    delivery: '200',
+    rating: {
+        stars: 4.5,
+        count: 88
+      } ,
+    catagory:'fashion',
+    brand: 'Solimo',
+    keywords: [
+      "tshirts",
+      "apparel",
+      "mens"
+    ]
 },
 ];
 
@@ -187,9 +419,18 @@ export function shortedName(name) {
         return name;
     };
 };
+//short the big name for deals
+export function dealShortedName(name) {
+    if (name.length > 40) {
+        return name.substring(0, 40);
+    } else {
+        return name;
+    };
+};
 
 // products search filter
 export function searchProducts(query) {
     query = query.toLowerCase();
     return products.filter(product => product.name.toLowerCase().includes(query) || product.catagory.toLowerCase().includes(query));
-}
+};
+

@@ -90,9 +90,9 @@ document.querySelector('.product-preview').innerHTML =
 
         <div class="product-rating">
             <div class="rating-image">
-                <img src="${matchingProduct.rating}">
+                <img src="images/ratings/rating-${matchingProduct.rating.stars * 10}.png">
             </div>
-            <p>14,077 Ratings & 990 Reviews</p>
+            <p>${matchingProduct.rating.count} Ratings & 990 Reviews</p>
         </div>
 
         <div class="delivery-details">
@@ -179,7 +179,8 @@ products.forEach((product) =>{
                 $${(relatedProduct.price/100).toFixed(2)}
                 </div>
                 <div class="related-products-rating">
-                    <img src="images/rating-4.png" alt="">
+                <img src="images/ratings/rating-${product.rating.stars * 10}.png">
+                <div class="product-rating-count">(${product.rating.count})</div>
                 </div>
                 <div class="addToCart-btn">
                     <div class="addCart-btn">

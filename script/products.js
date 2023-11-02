@@ -431,6 +431,5 @@ export function dealShortedName(name) {
 // products search filter
 export function searchProducts(query) {
     query = query.toLowerCase();
-    return products.filter(product => product.name.toLowerCase().includes(query) || product.catagory.toLowerCase().includes(query));
+    return products.filter(product => product.name.toLowerCase().includes(query) || product.keywords.includes(query));
 };
-

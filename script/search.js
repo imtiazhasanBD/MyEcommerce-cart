@@ -75,7 +75,7 @@ function renderProductHtml(newProduct,value){
 // brand filter html 
 let productBand = []
 filterProducts.forEach((product) =>{
-        productBand.push(product.brand);
+        productBand.push(!product.brand);
         
     
     document.querySelector('.product-brand .product-catagory').innerHTML += `
@@ -187,15 +187,30 @@ productAddToCart();
 ProductSortFilter();
 
 //product filter
+const filterInputPrice = document.querySelectorAll('.product-price input');
 const filterInput = document.querySelectorAll('.product-catagory input');
 
-filterInput.forEach((button) =>{
+// product filter by price button
+filterInputPrice.forEach((button) =>{
     button.addEventListener('change', ()=>{
         if(button.checked){
            const priceValue = Number(button.value);
-           const brandName = button.value
            filterProductByPrice(priceValue);
-           console.log(brandName)
+        }else{
+             filterProducts = searchProducts(query);
+            renderProductHtml(filterProducts,query);
+        };
+        previewProduct();
+        productAddToCart();
+    });
+});
+
+
+// product filter by Brand Name button
+filterInput.forEach((button) =>{
+    button.addEventListener('change', ()=>{
+        if(button.checked){
+           filterProductByBrand(button.value);
         }else{
              filterProducts = searchProducts(query);
             renderProductHtml(filterProducts,query);

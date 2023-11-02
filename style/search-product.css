@@ -22,7 +22,7 @@ body{
     position: fixed;
 }
 
-.product-catagory{
+.product-catagory, .product-price{
     display: flex;
     flex-direction: column;
     gap: 7px;

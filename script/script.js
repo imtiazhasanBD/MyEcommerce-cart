@@ -248,10 +248,15 @@ let span = document.getElementsByTagName('span');
 // Product Search element
 const searchInput = document.querySelector('.user-input'); 
 const searchBtn = document.querySelector('.search-btn');
+
 // Product Search button
 searchBtn.addEventListener('click',  () => {
-    const query = searchInput.value;
-    window.location.href = `search-product.html?q=${query}`;
+    if(searchInput.value === ''){
+        alert('cant leave empty');  
+    }else{
+        const query = searchInput.value;
+        window.location.href = `search-product.html?q=${query}`;
+    }
 });
 
 

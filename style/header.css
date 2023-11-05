@@ -95,6 +95,9 @@ body p  {
     margin-left: 15px;
 }
 
+.header a{
+    text-decoration: none;
+}
 
 .header .logo img{
     background-color: transparent;

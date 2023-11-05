@@ -90,3 +90,8 @@ body{
 }
 
 
+input[type=checkbox] {
+    accent-color: #00633f;
+    cursor: pointer;
+  }
+

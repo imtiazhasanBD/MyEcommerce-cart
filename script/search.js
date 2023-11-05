@@ -177,8 +177,18 @@ if(seleteValue === 'Low To high'){
 if(seleteValue === 'High To Low'){
    filterProducts  = filterProducts.sort((a,b) => b.price - a.price);
    renderProductHtml(filterProducts,query);
-
 };
+// sort products rating count
+if(seleteValue === 'Top Sell'){
+   filterProducts  = filterProducts.sort((a,b) => b.rating.count - a.rating.count);
+   renderProductHtml(filterProducts,query);
+};
+
+if(seleteValue === 'Best Match'){
+    filterProducts = searchProducts(query);
+    renderProductHtml(filterProducts,query);
+}
+
 previewProduct();
 productAddToCart();
 });

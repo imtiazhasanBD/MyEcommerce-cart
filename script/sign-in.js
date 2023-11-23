@@ -4,7 +4,7 @@ const errorMsg = document.querySelector('.sign-in-form span')
 const signUpEl= document.querySelector('.sign-in-form')
 
 continueBtn.addEventListener('click', ()=>{
-        numberValidation(userNumber.value)
+        numberValidation(userNumber.value);
 });
 
 
@@ -18,7 +18,6 @@ function numberValidation(number){
             userNumber.style = 'border: 1px solid red';
             errorMsg.innerHTML = '*Invalid Phone Number';
         }
-
         else{
             errorMsg.style = 'display: none';
             signUpEl.innerHTML = `
@@ -70,7 +69,7 @@ function ClearMessage(){
     erorrs.forEach((item) =>{
         item.innerHTML = '';
     })
-}
+};
 
 
 // For Display Error Message
@@ -102,7 +101,7 @@ if(!UserData){
 //Validation function
 function FormValidation(){
 
-    ClearMessage()
+    ClearMessage();
 
     //For Name Validation
     const userName = document.querySelector('#fullName input').value;
@@ -123,8 +122,6 @@ function FormValidation(){
         errorMessage('#email', '* Email is required')
         return false;
     }
-
-
     else if(!userEmail.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
         errorMessage('#email', '* Please enter a valid email');
         return false;
@@ -165,21 +162,22 @@ function FormValidation(){
     };
 
   
+    //Filter dublicate email
+        const dublicateData = UserData.some(data => data.email === userEmail);
+    // if dublicate email stop else push the data
+        if(dublicateData){
+            errorMessage('#email', '*This email is already registered');
+            return false;
+        }else{
+            UserData.push({
+                name: userName,
+                email: userEmail,
+                password: userPassword
+            });
 
+        };
 
-
-        UserData.push({
-            name: userName,
-            email: userEmail,
-            password: userPassword
-          });
-    
-
-  saveToStorage()
-    
-
-}
-
-console.log(UserData)
-
-
+        saveToStorage();
+            
+        return !dublicateData;
+};

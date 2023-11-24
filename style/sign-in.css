@@ -23,6 +23,10 @@
     display: none;
 }
 
+.sign-in-form p a{
+    color: #049cb9;
+}
+
 .sign-in-form h1,
 .sign-in-form h3{
     text-align: center;

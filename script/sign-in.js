@@ -1,7 +1,7 @@
 const userNumber = document.querySelector('.user-number');
 const continueBtn = document.querySelector('.continue-btn');
-const errorMsg = document.querySelector('.sign-in-form span')
-const signUpEl= document.querySelector('.sign-in-form')
+const errorMsg = document.querySelector('.sign-in-form #number-error');
+const signUpEl= document.querySelector('.sign-in-form');
 
 continueBtn.addEventListener('click', ()=>{
         numberValidation(userNumber.value);
@@ -19,46 +19,58 @@ function numberValidation(number){
             errorMsg.innerHTML = '*Invalid Phone Number';
         }
         else{
-            errorMsg.style = 'display: none';
-            signUpEl.innerHTML = `
-            <h1>Create your EcartMart Account</h1>
-            <h3>Start by entering your First Name</h3>
-            <form class="sign-Up-from" action="/index.html"  onsubmit="return FormValidation()">
 
-                <div class="Input-filed" id="fullName">
-                    <input   type="text" placeholder="Enter Your First And Last Name" >
-                    <span class="errorMessage"></span>
-                </div>
-
-                <div class="Input-filed" id="email">
-                   <input type="text" placeholder="Enter Your Email">
-                   <span class="errorMessage"></span>
-                </div>   
-
-                <div class="Input-filed" id="password">
-                  <input type="password" placeholder="Enter Your Password">
-                  <span class="errorMessage"></span>
-                </div>
-
-                <div class="Input-filed" id="Cpassword">
-                  <input type="password" placeholder="Confirm Password">
-                  <span class="errorMessage"></span>
-                </div>
+          // Check duplicate number
+        const dublicateNumber = UserData.some(number => number.phoneNumber=== userNumber.value);
+        // if duplicate number stop else render page    
+        if(dublicateNumber){
+            errorMsg.style = 'display: inline';
+            userNumber.style = 'border: 1px solid red';
+            errorMsg.innerHTML = '*This Phone Number is already used.!';
+            } 
+            else{
+                errorMsg.style = 'display: none';
+                signUpEl.innerHTML = 
+                `
+                <h1>Create your EcartMart Account</h1>
+                <h3>Start by entering your First Name</h3>
+                <form class="sign-Up-from" action="/index.html" onsubmit="return FormValidation()">
+                    <div class="Input-filed" id="fullName">
+                        <input   type="text" placeholder="Enter Your First And Last Name" >
+                        <span class="errorMessage"></span>
+                    </div>
+    
+                    <div class="Input-filed" id="email">
+                       <input type="text" placeholder="Enter Your Email">
+                       <span class="errorMessage"></span>
+                    </div>   
+    
+                    <div class="Input-filed" id="password">
+                      <input type="password" placeholder="Enter Your Password">
+                      <span class="errorMessage"></span>
+                    </div>
+    
+                    <div class="Input-filed" id="Cpassword">
+                      <input type="password" placeholder="Confirm Password">
+                      <span class="errorMessage"></span>
+                    </div>
+                    
+                    <div class="Input-filed"  id="User-OTP"style="display: flex; flex-direction: column; gap: 10px;">
+                        <label class="otp-message" >Provide OTP sent on your mobile number +${userNumber.value.trim()} </label>
+                        <input type="number" placeholder="Enter Your OTP" >
+                      <span class="errorMessage"></span>
+                    </div>
+    
+                  
+                    <button type="submit" class="sign-up-btn" >Sign Up</button>
+                </form>
                 
-                <div class="Input-filed"  id="User-OTP"style="display: flex; flex-direction: column; gap: 10px;">
-                    <label class="otp-message" >Provide OTP sent on your mobile number +${userNumber.value.trim()} </label>
-                    <input type="number" placeholder="Enter Your OTP" >
-                  <span class="errorMessage"></span>
-                </div>
-
-              
-                <button type="submit" class="sign-up-btn" >Sign Up</button>
-            </form>
-
-            
-            `
+                `;
+            };
         };
-     
+
+
+ 
 };
 
 
@@ -68,7 +80,7 @@ function ClearMessage(){
     const erorrs = document.querySelectorAll('.errorMessage');
     erorrs.forEach((item) =>{
         item.innerHTML = '';
-    })
+    });
 };
 
 
@@ -82,12 +94,12 @@ function errorMessage(id,message){
 // user Data store
 let UserData = JSON.parse(localStorage.getItem('UserData'));
 if(!UserData){
-    UserData =[
-      {  name: "userName",
-         email: "userEmail",
-         password: "userPassword"
-    }
-    ]
+    UserData =
+    [{  name: "userName",
+        email: "userEmail",
+        password: "userPassword",
+        phoneNumber: "userNumber"
+    }]
 };
 
 
@@ -107,12 +119,11 @@ function FormValidation(){
     const userName = document.querySelector('#fullName input').value;
     if(userName == ''){
         errorMessage('#fullName', '*Name is required')
-        return false
+        return false;
     }
     else if(!userName.match(/^[A-Za-z]+\s[A-Za-z]+$/)){
         errorMessage('#fullName', '*Enter Your FullName');
-        console.log(userName)
-        return false
+        return false;
     };
 
 
@@ -131,12 +142,12 @@ function FormValidation(){
     const userPassword = document.querySelector('#password input').value;
     if(userPassword == ''){
         errorMessage('#password', '* Password is required');
-        return false
+        return false;
     }
     else if(userPassword.length < 8){
         ///^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/
         errorMessage('#password', '* At least 8 characters long');
-        return false
+        return false;
     };
 
 
@@ -144,11 +155,11 @@ function FormValidation(){
     const userCPassword = document.querySelector('#Cpassword input').value;
     if(userCPassword == ''){
         errorMessage('#Cpassword', '*Confirm Password is required');
-        return false
+        return false;
     }
     else if(userCPassword != userPassword){
         errorMessage('#Cpassword', '*Password Not Match');
-        return false
+        return false;
     };
 
 
@@ -157,27 +168,28 @@ function FormValidation(){
     //For OTP Validation
     const userOTP = document.querySelector('#User-OTP input').value;
     if(userOTP == ''){
-        errorMessage('#User-OTP', '*OTP is required')
-        return false
+        errorMessage('#User-OTP', '*OTP is required');
+        return false;
     };
 
   
-    //Filter dublicate email
-        const dublicateData = UserData.some(data => data.email === userEmail);
-    // if dublicate email stop else push the data
-        if(dublicateData){
+    //Filter duplicate email
+        const duplicateData = UserData.some(data => data.email === userEmail);
+    // if duplicate email stop else push the data
+        if(duplicateData){
             errorMessage('#email', '*This email is already registered');
             return false;
         }else{
             UserData.push({
                 name: userName,
                 email: userEmail,
-                password: userPassword
+                password: userPassword,
+                phoneNumber:userNumber.value
             });
 
         };
 
         saveToStorage();
             
-        return !dublicateData;
+        return !duplicateData;
 };

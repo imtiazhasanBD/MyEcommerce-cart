@@ -16,7 +16,7 @@ function numberValidation(number){
         else if(!number.match(/^[0-9]{10}$/)){
             errorMsg.style = 'display: inline;'
             userNumber.style = 'border: 1px solid red';
-            errorMsg.innerHTML = '*Invalid Phone Number';
+            errorMsg.innerHTML = '*Invalid Phone Number (Number Should be 10 digit)';
         }
         else{
 
@@ -193,3 +193,93 @@ function FormValidation(){
             
         return !duplicateData;
 };
+
+
+
+// Existing user login 
+
+
+const LoginUserBtn = document.querySelector('.login-user-btn');
+
+LoginUserBtn.addEventListener('click', () =>{
+    document.querySelector('.sign-in-form' ).innerHTML = `
+    
+    <h1>Welcome to EcartMart! Please login</h1>
+    <span id="new-member">New member? <a> Register</a> here</span>
+
+    <form id="user-login-form" action="/index.html" onsubmit="return loginDataValidation()">
+        <div class="Input-filed" id="user-email-filed" >
+            <input type="text" class="user-email" placeholder="Email/Mobile Number">
+            <span class="errorMessage email-error "></span>
+        </div>
+
+        <div class="Input-filed" id="user-password-filed" >
+            <input type="password" class="user-password" placeholder="Enter Password">
+            <span class="errorMessage password-error"></span>
+        </div>
+        <span class="wrong-password"></span>
+
+        <button type="submit" class="login-button">LOGIN</button>
+    </form>
+    <div class="forgot-password">
+        <label for="Remember">
+            <input type="checkbox" name="Remember">
+            <span>Remember Me</span>
+        </label>
+        <a href="">Forgot Password?</a>
+    </div>
+    <p class="sign-social">Or, login with</p>
+   <div class="sign-social-button">
+        <button  href="" class="google-login"><i class="fa-brands fa-google-plus-g"></i>Google</button>
+        <button  href="" class="facebook-login"><i class="fa-brands fa-facebook-f"></i>Facebook</button>
+
+    </div>
+   
+    
+    `
+});
+
+
+
+
+// Login Form validation
+const userEmail = document.querySelector('#user-login-form .user-email');
+const userPassword = document.querySelector('#user-login-form .user-password');
+const loginErrorMsg = document.querySelector('#user-login-form');
+
+
+function loginDataValidation(){
+    ClearMessage();
+
+    if(userEmail.value === ''){
+         loginErrorMsg.querySelector('.email-error').innerHTML = `* You can't leave this empty`;
+         return false;
+       
+    }else if(userPassword.value === ''){
+        loginErrorMsg.querySelector('.password-error').innerHTML = `* You can't leave this empty`;
+        return false;
+    };
+
+/// filtering the user input data 
+  const checkEmail =   UserData.some(data => data.email === userEmail.value);
+  const checkPhone =   UserData.some(data => data.phoneNumber === userEmail.value);
+  const checkPassword =   UserData.some(data => data.password === userPassword.value);
+
+
+    if((checkEmail || checkPhone)  && checkPassword){
+        return true;
+    }
+    else if((checkEmail || checkPhone) && !checkPassword){
+            document.querySelector('#user-login-form .wrong-password').innerHTML = '*Wrong password. Try again or click Forgot password to reset it.';
+            document.querySelector('#user-login-form .user-email').style = 'none'
+            document.querySelector('#user-login-form .user-password').style = 'border: 1px solid red';
+            return false;
+    }
+    else if(!checkEmail || !checkPhone){
+            document.querySelectorAll('#user-login-form input').forEach(input => input.style = 'border: 1px solid red');
+            document.querySelector('#user-login-form .wrong-password').innerHTML ='*Incorrect username or password.';
+            return false;
+    };
+   
+};
+

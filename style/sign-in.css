@@ -52,6 +52,7 @@
     background-color: #00633f;
     color: white;
     border: none;
+    margin: 10px 0px;
 }
 
 .sign-in-form button{
@@ -144,3 +145,110 @@
     border: none;
 }
 
+/**** Login Form*/
+
+
+
+.login-form{
+    gap: 10px;
+}
+
+#user-login-form  input{
+    height: 50px;
+}
+
+#user-email-filed{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+
+.forgot-password{
+    display: flex;
+    flex-direction: row;
+    max-height: 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 10px;
+
+}
+
+.forgot-password label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+ 
+#user-login-form .user-password,
+#user-login-form .user-email{
+    padding-left: 50px; 
+    background-image: url('/images/social-media-icons/icons-password.png');
+    background-size: 18px; 
+    background-repeat: no-repeat;
+    background-position: 15px center; 
+    border: 2px solid  rgb(224, 224, 224);
+  }
+
+
+  #user-login-form .user-email{
+    background-image: url('/images/social-media-icons/user-profile.png') ;
+}
+
+#user-password-filed{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#user-login-form span{
+    font-size: 12px;
+    font-weight: normal;
+    padding-bottom: 4px;
+}
+
+#user-login-form .wrong-password{
+    color: red;
+    font-size: 13px;
+}
+
+.login-form #new-member{
+    text-align: center;
+}
+
+.login-form #new-member a{
+    color: #049cb9;
+    cursor: pointer;
+}
+
+.login-form .login-button{
+    background-color: #00633f;
+    color: white;
+    border: none;
+    margin-top: 30px;
+}
+
+.sign-social-button{
+    display: flex;
+    gap: 20px;
+}
+
+.login-form .google-login,
+.login-form .facebook-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color:white;
+    border: none;
+}
+
+
+.sign-social-button .google-login{
+    background-color: #d34836 ;
+}
+
+.sign-social-button .facebook-login{
+    background-color: #3b5998;
+}

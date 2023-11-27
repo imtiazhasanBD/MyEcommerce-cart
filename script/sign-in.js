@@ -205,7 +205,7 @@ LoginUserBtn.addEventListener('click', () =>{
     document.querySelector('.sign-in-form' ).innerHTML = `
     
     <h1>Welcome to EcartMart! Please login</h1>
-    <span id="new-member">New member? <a> Register</a> here</span>
+    <span id="new-member">New member? <a href="/sign-in-page.html"> Register</a> here</span>
 
     <form id="user-login-form" action="/index.html" onsubmit="return loginDataValidation()">
         <div class="Input-filed" id="user-email-filed" >
@@ -242,14 +242,16 @@ LoginUserBtn.addEventListener('click', () =>{
 
 
 
+
+
 // Login Form validation
+function loginDataValidation(){
+ 
 const userEmail = document.querySelector('#user-login-form .user-email');
 const userPassword = document.querySelector('#user-login-form .user-password');
 const loginErrorMsg = document.querySelector('#user-login-form');
-
-
-function loginDataValidation(){
-    ClearMessage();
+   
+ClearMessage();
 
     if(userEmail.value === ''){
          loginErrorMsg.querySelector('.email-error').innerHTML = `* You can't leave this empty`;
